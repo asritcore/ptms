@@ -1,0 +1,2896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2068%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22fg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%2264%22%20y2%3D%2268%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23c8860f%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%231a3560%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Cpath%20d%3D%22M32%202%20L60%2012%20L60%2036%20C60%2052%2046%2063%2032%2067%20C18%2063%204%2052%204%2036%20L4%2012%20Z%22%20fill%3D%22url%28%23fg%29%22/%3E%0A%20%20%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-size%3D%2226%22%20font-family%3D%22serif%22%20fill%3D%22white%22%20opacity%3D%22.95%22%3E%E2%98%85%3C/text%3E%0A%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2068%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22fg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%2264%22%20y2%3D%2268%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23c8860f%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%231a3560%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Cpath%20d%3D%22M32%202%20L60%2012%20L60%2036%20C60%2052%2046%2063%2032%2067%20C18%2063%204%2052%204%2036%20L4%2012%20Z%22%20fill%3D%22url%28%23fg%29%22/%3E%0A%20%20%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-size%3D%2226%22%20font-family%3D%22serif%22%20fill%3D%22white%22%20opacity%3D%22.95%22%3E%E2%98%85%3C/text%3E%0A%3C/svg%3E">
+<meta name="theme-color" content="#1e3a5f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>PTMS</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --page:#f5f7fb;--surface:#fff;--surf2:#eef1f8;--surf3:#e3e8f2;
+  --pri:#1e3a5f;--pri-mid:#274d80;--pri-lt:#2d5a96;
+  --pri-g1:rgba(30,58,95,.07);--pri-g2:rgba(30,58,95,.13);
+  --acc:#b87316;--acc-lt:#d98c1e;
+  --bd:#dde2ed;--bd2:#c8cedf;
+  --t1:#111827;--t2:#374151;--t3:#6b7280;--t4:#9ca3af;
+  --ip-bg:#eff6ff;--ip-bd:#93c5fd;--ip-tx:#1d4ed8;--ip-dot:#3b82f6;
+  --cp-bg:#f0fdf4;--cp-bd:#86efac;--cp-tx:#166534;--cp-dot:#22c55e;
+  --ov-bg:#fff1f2;--ov-bd:#fca5a5;--ov-tx:#be123c;--ov-dot:#f43f5e;
+  --rp-bg:#fff7ed;--rp-bd:#fdba74;--rp-tx:#c2410c;--rp-dot:#f97316;
+  --cl-bg:#f5f3ff;--cl-bd:#c4b5fd;--cl-tx:#6d28d9;--cl-dot:#8b5cf6;
+  --sh-xs:0 1px 3px rgba(0,0,0,.05);
+  --sh-sm:0 1px 5px rgba(0,0,0,.07),0 2px 10px rgba(0,0,0,.04);
+  --sh-md:0 4px 18px rgba(0,0,0,.09);
+  --sh-modal:0 24px 64px rgba(0,0,0,.16),0 6px 20px rgba(0,0,0,.08);
+  --nav-h:56px;--r:10px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{font-size:14px;scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--page);color:var(--t2);min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased;overscroll-behavior:none;}
+
+/* LOGIN */
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,var(--pri) 0%,var(--pri-mid) 60%,#1a4080 100%);padding:16px;}
+.login-card{background:#fff;border-radius:18px;padding:36px 28px;width:100%;max-width:400px;box-shadow:var(--sh-modal);}
+.lc-title{font-size:24px;font-weight:800;color:var(--t1);text-align:center;letter-spacing:-.4px;margin-bottom:4px;}
+.lc-sub{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2.5px;color:var(--t4);text-align:center;text-transform:uppercase;margin-bottom:28px;}
+.lc-err{background:var(--ov-bg);border:1px solid var(--ov-bd);color:var(--ov-tx);border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600;margin-bottom:14px;display:none;}
+
+/* TOPBAR */
+.topbar{position:sticky;top:0;z-index:400;background:var(--pri);height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 14px;box-shadow:0 2px 14px rgba(20,40,80,.28);}
+.tb-l{display:flex;align-items:center;gap:10px;min-width:0;flex:1;}
+.tb-brand .t1{font-size:16px;font-weight:800;color:#fff;letter-spacing:-.3px;}
+.tb-brand .t2{font-size:9px;color:rgba(255,255,255,.5);font-family:'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;}
+.op-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border-radius:20px;padding:4px 10px 4px 6px;min-width:0;}
+.op-n{font-size:13px;font-weight:700;color:#fff;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px;}
+/* name button on right */
+.name-btn{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:22px;padding:6px 14px 6px 10px;cursor:pointer;transition:background .13s;flex-shrink:0;}
+.name-btn:hover{background:rgba(255,255,255,.2);}
+.name-btn-initial{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;flex-shrink:0;}
+.name-btn-label{font-size:13px;font-weight:700;color:#fff;white-space:nowrap;}
+.name-btn-arrow{font-size:9px;color:rgba(255,255,255,.6);}
+
+/* HAMBURGER BUTTON */
+.ham-btn{width:36px;height:36px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;border-radius:8px;transition:background .13s;margin-right:4px;}
+.ham-btn:hover{background:rgba(255,255,255,.1);}
+.ham-line{width:20px;height:2px;background:#fff;border-radius:2px;transition:all .2s;}
+
+/* LAYOUT */
+.layout{display:flex;min-height:calc(100vh - var(--nav-h));}
+.sidebar{width:220px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--bd);padding:16px 0;position:sticky;top:var(--nav-h);height:calc(100vh - var(--nav-h));overflow-y:auto;}
+.main{flex:1;min-width:0;padding:20px 20px 40px;}
+.nav-sec{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--t4);text-transform:uppercase;padding:12px 18px 5px;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 18px;cursor:pointer;font-size:13px;font-weight:600;color:var(--t3);border-radius:0;transition:all .12s;position:relative;}
+.nav-item:hover{color:var(--t1);background:var(--surf2);}
+.nav-item.active{color:var(--pri);background:var(--pri-g1);}
+.nav-item.active .ndot{background:var(--pri);}
+.ndot{width:6px;height:6px;border-radius:50%;background:var(--bd2);flex-shrink:0;}
+.nlbl{flex:1;}
+.nbadge{font-size:10px;font-weight:700;background:var(--ip-bg);color:var(--ip-tx);border:1px solid var(--ip-bd);border-radius:20px;padding:1px 7px;min-width:20px;text-align:center;}
+.nbadge.alert{background:var(--ov-bg);color:var(--ov-tx);border-color:var(--ov-bd);}
+.nbadge.hide{display:none;}
+.sb-foot{padding:20px 18px 10px;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--t4);letter-spacing:1px;}
+
+/* MOBILE DRAWER */
+.drawer-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:499;}
+.drawer-overlay.open{display:block;}
+.drawer{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--surface);z-index:500;transform:translateX(-100%);transition:transform .25s ease;box-shadow:var(--sh-modal);overflow-y:auto;}
+.drawer.open{transform:translateX(0);}
+.drawer-head{background:var(--pri);padding:20px 18px 16px;padding-top:calc(20px + env(safe-area-inset-top,0px));}
+.drawer-name{font-size:15px;font-weight:700;color:#fff;}
+.drawer-rank{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px;}
+
+/* PAGE HEADER */
+.ph{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;gap:10px;flex-wrap:wrap;}
+.ph-title{font-size:20px;font-weight:800;color:var(--t1);letter-spacing:-.3px;line-height:1.3;}
+.ph-title em{color:var(--pri);font-style:normal;}
+.ph-sub{font-size:12px;color:var(--t3);font-weight:500;margin-top:2px;}
+.ph-acts{display:flex;gap:8px;flex-wrap:wrap;}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .13s;white-space:nowrap;font-family:'Inter',sans-serif;}
+.btn:disabled{opacity:.5;cursor:not-allowed;}
+.btn-primary{background:var(--pri);color:#fff;}
+.btn-primary:hover:not(:disabled){background:var(--pri-lt);}
+.btn-ghost{background:transparent;color:var(--t2);border:1.5px solid var(--bd);}
+.btn-ghost:hover:not(:disabled){background:var(--surf2);}
+.btn-danger{background:#fff1f2;color:#be123c;border:1.5px solid #fca5a5;}
+.btn-danger:hover:not(:disabled){background:#fee2e2;}
+.btn-success{background:#f0fdf4;color:#166534;border:1.5px solid #86efac;}
+.btn-success:hover:not(:disabled){background:#dcfce7;}
+.btn-warn{background:#fff7ed;color:#c2410c;border:1.5px solid #fdba74;}
+.btn-warn:hover:not(:disabled){background:#fed7aa;}
+.btn-sm{padding:6px 12px;font-size:12px;}
+.btn-full{width:100%;}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px;}
+.sc{background:var(--surface);border:1.5px solid var(--bd);border-radius:var(--r);padding:12px 10px;position:relative;overflow:hidden;box-shadow:var(--sh-xs);}
+.sc-bar{position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r) var(--r) 0 0;}
+.sc-accent{position:absolute;top:0;left:0;right:0;height:3px;}
+.sc-ip .sc-bar,.sc-ip .sc-accent{background:var(--ip-dot);}
+.sc-cp .sc-bar,.sc-cp .sc-accent{background:var(--cp-dot);}
+.sc-ov .sc-bar,.sc-ov .sc-accent{background:var(--ov-dot);}
+.sc-rp .sc-bar,.sc-rp .sc-accent{background:var(--rp-dot);}
+.sc-tt .sc-bar{background:linear-gradient(90deg,var(--pri),var(--pri-lt));}
+.sc-cl .sc-bar,.sc-cl .sc-accent{background:var(--cl-dot);}
+.sc-ico{font-size:18px;margin-bottom:4px;display:block;}
+.sc-lbl{font-size:10px;font-weight:700;color:var(--t3);letter-spacing:.3px;text-transform:uppercase;}
+.sc-val{font-size:22px;font-weight:800;color:var(--t1);line-height:1.2;margin:2px 0;}
+.sc-desc,.sc-hint{font-size:10px;color:var(--t4);}
+
+/* NOTICE */
+.notice{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:var(--r);margin-bottom:14px;font-size:13px;font-weight:500;}
+.n-vi{background:var(--cl-bg);border:1px solid var(--cl-bd);color:var(--cl-tx);}
+.n-warn{background:#fff7ed;border:1px solid #fdba74;color:#9a3412;}
+.n-danger{background:var(--ov-bg);border:1px solid var(--ov-bd);color:var(--ov-tx);}
+.ni{font-size:16px;flex-shrink:0;}
+.notice a{font-weight:700;cursor:pointer;text-decoration:underline;}
+
+/* FILTER BAR */
+.fbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px;padding:10px 12px;background:var(--surface);border:1.5px solid var(--bd);border-radius:9px;box-shadow:var(--sh-xs);}
+.fbar label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--t4);text-transform:uppercase;white-space:nowrap;}
+select.flt{background:var(--surface);border:1px solid var(--bd2);border-radius:6px;padding:7px 10px;color:var(--t2);font-size:13px;font-family:'Inter',sans-serif;font-weight:600;outline:none;cursor:pointer;-webkit-appearance:auto;}
+select.flt:focus{border-color:var(--pri);}
+input.fsearch{background:var(--surface);border:1px solid var(--bd2);border-radius:6px;padding:7px 11px;color:var(--t1);font-size:13px;font-family:'Inter',sans-serif;outline:none;flex:1;min-width:140px;}
+input.fsearch:focus{border-color:var(--pri);}
+.sort-btn{background:var(--surf2);border:1px solid var(--bd);border-radius:6px;padding:6px 10px;font-size:12px;font-weight:700;color:var(--t2);cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.sort-btn.active{background:var(--pri-g1);color:var(--pri);border-color:var(--pri);}
+
+/* BADGES */
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;border:1px solid;}
+.bs-In-Progress{background:var(--ip-bg);border-color:var(--ip-bd);color:var(--ip-tx);}
+.bs-Completed{background:var(--cp-bg);border-color:var(--cp-bd);color:var(--cp-tx);}
+.bs-Overdue{background:var(--ov-bg);border-color:var(--ov-bd);color:var(--ov-tx);}
+.bs-Reopened{background:var(--rp-bg);border-color:var(--rp-bd);color:var(--rp-tx);}
+.bs-Closure-Pending{background:var(--cl-bg);border-color:var(--cl-bd);color:var(--cl-tx);}
+.bc-Crime{background:#fff1f2;border-color:#fca5a5;color:#9f1239;}
+.bc-Land-Dispute{background:#fefce8;border-color:#fde047;color:#854d0e;}
+.bc-Admin{background:#eff6ff;border-color:#93c5fd;color:#1e40af;}
+.bc-Meeting{background:#faf5ff;border-color:#d8b4fe;color:#6b21a8;}
+.bc-Other{background:#f8fafc;border-color:#cbd5e1;color:#475569;}
+.bp-High{background:#fff1f2;border-color:#fca5a5;color:#be123c;}
+.bp-Low{background:#f0fdf4;border-color:#86efac;color:#166534;}
+.bp-Urgent{background:#fff7ed;border-color:#fb923c;color:#9a3412;animation:pulse-urg 1.4s infinite;}
+@keyframes pulse-urg{0%,100%{box-shadow:0 0 0 0 rgba(251,146,60,.5);}60%{box-shadow:0 0 0 5px rgba(251,146,60,0);}}
+.due-urgent{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;color:#9a3412;animation:pulse-urg 1.4s infinite;display:inline-block;}
+
+/* COUNTDOWN */
+.tc-countdown{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:1px 6px;border-radius:20px;display:inline-block;margin-top:2px;}
+.tc-cd-ok{background:#f0fdf4;color:#166534;border:1px solid #86efac;}
+.tc-cd-warn{background:#fefce8;color:#854d0e;border:1px solid #facc15;}
+.tc-cd-urgent{background:#fff1f2;color:#be123c;border:1px solid #fca5a5;animation:pulse-urg 1.4s infinite;}
+.tc-cd-over{background:var(--ov-bg);color:var(--ov-tx);border:1px solid var(--ov-bd);font-weight:800;}
+
+/* TASK CARDS */
+.card-list{display:flex;flex-direction:column;gap:10px;}
+.task-card{background:var(--surface);border:1.5px solid var(--bd);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:all .13s;box-shadow:var(--sh-xs);}
+.task-card:hover{border-color:var(--bd2);box-shadow:var(--sh-sm);transform:translateY(-1px);}
+.tc-bar{height:3px;}
+.tc-bar.tc-bar-ip{background:var(--ip-dot);}
+.tc-bar.tc-bar-cp{background:var(--cp-dot);}
+.tc-bar.tc-bar-ov{background:var(--ov-dot);}
+.tc-bar.tc-bar-rp{background:var(--rp-dot);}
+.tc-bar.tc-bar-cl{background:var(--cl-dot);}
+.tc-inner{padding:11px 13px;}
+.tc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px;}
+.tc-title{font-size:13px;font-weight:700;color:var(--t1);line-height:1.4;flex:1;}
+.tc-id{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t4);flex-shrink:0;}
+.tc-meta{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:7px;}
+.tc-row{display:flex;align-items:flex-end;justify-content:space-between;}
+.tc-person{font-size:11px;color:var(--t3);font-weight:500;}
+.tc-person span{font-weight:700;color:var(--t2);}
+.tc-due{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t3);}
+.tc-due.ov{color:var(--ov-tx);font-weight:700;}
+.task-card.selected-task{border-color:var(--pri);background:var(--pri-g1);}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;border-radius:var(--r);box-shadow:var(--sh-xs);}
+table.dt{width:100%;border-collapse:collapse;background:var(--surface);font-size:13px;}
+table.dt th{padding:10px 13px;text-align:left;font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;background:var(--surf2);border-bottom:1.5px solid var(--bd);white-space:nowrap;}
+table.dt td{padding:10px 13px;border-bottom:1px solid var(--bd);vertical-align:middle;}
+table.dt tr:last-child td{border-bottom:none;}
+table.dt tr:hover td{background:var(--surf2);}
+table.dt tr.r-ov td{background:#fff5f5;}
+table.dt tr.r-cl td{background:#f9f7ff;}
+table.dt tr.r-rp td{background:#fffaf5;}
+.t-id{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t3);}
+.t-name{font-size:13px;font-weight:700;color:var(--t1);}
+.t-desc{font-size:11px;color:var(--t3);}
+.a-name{font-size:13px;font-weight:600;color:var(--t1);}
+.a-rank{font-size:11px;color:var(--t3);}
+.due{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t3);}
+.due.ov{color:var(--ov-tx);font-weight:700;}
+.await-note{font-size:10px;color:var(--cl-tx);font-weight:700;margin-top:2px;}
+
+/* EMPTY STATE */
+.empty{text-align:center;padding:60px 20px;}
+.empty-ico{font-size:36px;margin-bottom:10px;}
+.empty-title{font-size:16px;font-weight:700;color:var(--t2);margin-bottom:4px;}
+.empty-sub{font-size:13px;color:var(--t4);}
+
+/* MODALS */
+.modal-mask{display:none;position:fixed;inset:0;background:rgba(15,25,50,.6);z-index:600;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(2px);}
+.modal-mask.open{display:flex;}
+.mbox{background:var(--surface);border-radius:16px;width:100%;max-width:480px;max-height:90vh;display:flex;flex-direction:column;box-shadow:var(--sh-modal);overflow:hidden;}
+.mhead{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--bd);flex-shrink:0;}
+.mhead h3{font-size:15px;font-weight:700;color:var(--t1);}
+.mcls{background:none;border:none;font-size:20px;cursor:pointer;color:var(--t3);line-height:1;padding:2px 6px;border-radius:6px;}
+.mcls:hover{background:var(--surf2);}
+.mbody{overflow-y:auto;padding:18px 20px;flex:1;display:flex;flex-direction:column;gap:14px;}
+.mfoot{display:flex;justify-content:flex-end;gap:8px;padding:14px 20px;border-top:1px solid var(--bd);flex-shrink:0;}
+
+/* FORM ELEMENTS */
+.fg{display:flex;flex-direction:column;gap:5px;}
+.fl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--t3);text-transform:uppercase;}
+.fc{background:var(--surface);border:1.5px solid var(--bd);border-radius:8px;padding:10px 13px;color:var(--t1);font-size:14px;font-family:'Inter',sans-serif;font-weight:500;outline:none;width:100%;transition:border-color .13s;-webkit-appearance:none;}
+.fc:focus{border-color:var(--pri);box-shadow:0 0 0 3px rgba(30,58,95,.08);}
+textarea.fc{resize:vertical;min-height:85px;line-height:1.6;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.f-hint{font-size:11px;color:var(--t3);font-weight:600;}
+.ibox{padding:10px 13px;border-radius:8px;font-size:12px;font-weight:500;margin-bottom:4px;}
+.ibox-green{background:#f0fdf4;border:1px solid #86efac;color:#166534;}
+.ibox-amber{background:#fff7ed;border:1px solid #fdba74;color:#9a3412;}
+.ibox-blue{background:var(--ip-bg);border:1px solid var(--ip-bd);color:var(--ip-tx);}
+
+/* OFFICER DROPDOWN */
+.officer-dropdown-wrap{position:relative;}
+.officer-dropdown-trigger{background:var(--surface);border:1.5px solid var(--bd);border-radius:8px;padding:10px 13px;color:var(--t1);font-size:14px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .13s;}
+.officer-dropdown-trigger:hover{border-color:var(--pri);}
+.officer-dropdown-panel{position:fixed;background:#fff;border:1.5px solid var(--pri);border-radius:10px;z-index:1200;box-shadow:0 8px 32px rgba(0,0,0,.16);display:none;flex-direction:column;width:380px;max-width:90vw;}
+.officer-dropdown-panel.open{display:flex;}
+.officer-list{overflow-y:scroll;height:220px;min-height:220px;-webkit-overflow-scrolling:touch;}
+.officer-item{display:flex;align-items:center;gap:10px;padding:8px 12px;cursor:pointer;transition:background .1s;}
+.officer-item:hover{background:var(--surf2);}
+.officer-item input[type=checkbox]{width:15px;height:15px;accent-color:var(--pri);cursor:pointer;flex-shrink:0;}
+.officer-item label{font-size:13px;font-weight:500;color:var(--t1);cursor:pointer;flex:1;}
+.o-rank{font-size:10px;color:var(--t3);font-weight:600;}
+.sel-all-row{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--bd);background:var(--surf2);}
+.sel-all-row label{font-size:12px;font-weight:700;color:var(--pri);cursor:pointer;}
+.officer-search{background:var(--surface);border:0;border-bottom:1px solid var(--bd);padding:9px 12px;color:var(--t1);font-size:13px;font-family:'Inter',sans-serif;outline:none;width:100%;}
+.urgent-chk-label{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px;font-weight:700;color:#9a3412;padding:8px 10px;border:1.5px solid #fb923c;border-radius:8px;background:#fff7ed;white-space:nowrap;}
+.urgent-chk-label:hover{background:#fed7aa;}
+
+/* TASK DETAIL */
+.det-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px;background:var(--surf2);border-radius:var(--r);margin-bottom:14px;}
+.dm-item{display:flex;flex-direction:column;gap:3px;}
+.dm-full{grid-column:1/-1;}
+.dm-k{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;color:var(--t4);text-transform:uppercase;}
+.dm-v{font-size:13px;font-weight:600;color:var(--t1);}
+.sec-title{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;}
+.txt-box{background:var(--surf2);border-radius:8px;padding:12px;font-size:13px;color:var(--t2);line-height:1.6;}
+.txt-box.empty{color:var(--t4);font-style:italic;}
+.ap-box{background:var(--cl-bg);border:1.5px solid var(--cl-bd);border-radius:var(--r);padding:14px;margin-top:10px;}
+.ap-title{font-size:13px;font-weight:700;color:var(--cl-tx);margin-bottom:4px;}
+.ap-sub{font-size:12px;color:var(--cl-tx);margin-bottom:12px;opacity:.8;}
+.ap-acts{display:flex;gap:8px;flex-wrap:wrap;}
+.del-zone{background:var(--ov-bg);border:1.5px solid var(--ov-bd);border-radius:var(--r);padding:10px 14px;margin-top:8px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.del-zone span{font-size:12px;color:var(--ov-tx);font-weight:600;}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:12px;}
+.tl-item{display:flex;gap:12px;}
+.tl-dot{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:2px;}
+.tl-dot.assigned{background:var(--ip-bg);color:var(--ip-tx);}
+.tl-dot.submitted{background:var(--cl-bg);color:var(--cl-tx);}
+.tl-dot.approved{background:var(--cp-bg);color:var(--cp-tx);}
+.tl-dot.reopened,.tl-dot.extended{background:var(--rp-bg);color:var(--rp-tx);}
+.tl-dot.reassigned{background:#fdf4ff;color:#7e22ce;}
+.tl-dot.deleted{background:var(--ov-bg);color:var(--ov-tx);}
+.tl-body{flex:1;min-width:0;}
+.tl-actor{font-size:12px;font-weight:700;color:var(--t1);}
+.tl-action{font-size:12px;color:var(--t2);}
+.tl-date{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t4);margin-top:2px;}
+.tl-rem{font-size:12px;padding:6px 10px;border-radius:6px;margin-top:5px;}
+.tl-rem.normal{background:var(--surf2);color:var(--t2);}
+.tl-rem.rej{background:var(--rp-bg);color:var(--rp-tx);}
+.tl-rem.ext{background:var(--ip-bg);color:var(--ip-tx);}
+
+/* HIERARCHY */
+.hier-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+/* ── Tree Hierarchy UI ── */
+.htree{display:flex;flex-direction:column;gap:0;max-width:1100px;}
+/* SP row */
+.ht-sp{background:linear-gradient(135deg,var(--pri),var(--pri-lt));border-radius:12px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;box-shadow:var(--sh-md);}
+.ht-sp-name{font-size:17px;font-weight:800;color:#fff;}
+.ht-sp-sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:2px;text-transform:uppercase;letter-spacing:.5px;}
+.ht-sp-avatar{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;flex-shrink:0;margin-right:12px;}
+/* connector line */
+.ht-connector{width:2px;background:var(--bd2);margin:0 auto;height:16px;}
+/* Addl.SP row */
+.ht-addlsp{border:2px solid #7c3aed;border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;background:#faf5ff;margin-bottom:6px;}
+.ht-addlsp-label{font-size:9px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px;}
+.ht-addlsp-name{font-size:15px;font-weight:700;color:#4c1d95;}
+/* section header */
+.ht-sec-hdr{font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:700;color:var(--t4);text-transform:uppercase;letter-spacing:1.5px;padding:10px 0 6px;border-bottom:1px solid var(--bd);margin-bottom:12px;}
+/* DSP columns */
+.ht-dsp-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+.ht-dsp-col{display:flex;flex-direction:column;gap:10px;}
+.ht-dsp-card{background:var(--pri-g1);border:1.5px solid var(--pri);border-radius:10px;padding:12px 14px;}
+.ht-dsp-name{font-size:14px;font-weight:800;color:var(--pri);}
+.ht-dsp-sub{font-size:10px;color:var(--t3);margin-top:1px;}
+/* CI cards */
+.ht-ci-list{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+.ht-ci-card{background:var(--surface);border:1.5px solid #86efac;border-radius:8px;padding:0;overflow:hidden;}
+.ht-ci-head{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:#f0fdf4;}
+.ht-ci-name{font-size:13px;font-weight:700;color:#166534;}
+.ht-ci-meta{font-size:10px;color:var(--t3);margin-top:1px;}
+/* SI rows */
+.ht-si-list{padding:4px 0;}
+.ht-si-row{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;border-top:1px solid var(--bd);}
+.ht-si-name{font-size:12px;font-weight:600;color:var(--t1);}
+.ht-si-ps{font-size:10px;color:var(--t3);}
+/* action buttons in tree */
+.ht-acts{display:flex;gap:4px;align-items:center;flex-shrink:0;}
+.ht-edit{background:var(--surface);border:1px solid var(--bd2);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;color:var(--t2);cursor:pointer;white-space:nowrap;}
+.ht-edit:hover{border-color:var(--pri);color:var(--pri);}
+.ht-del{background:#fff1f2;border:1px solid #fca5a5;border-radius:6px;padding:4px 8px;font-size:11px;font-weight:700;color:#be123c;cursor:pointer;}
+.ht-del:hover{background:#fee2e2;}
+.ht-add{background:var(--cp-bg);border:1px dashed var(--cp-bd);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:700;color:var(--cp-tx);cursor:pointer;width:100%;text-align:center;margin-top:5px;}
+.ht-add:hover{background:#dcfce7;}
+/* inline edit form */
+.ht-edit-form{background:#fffbeb;border:1.5px solid #fbbf24;border-radius:8px;padding:12px;margin-top:6px;display:none;}
+.ht-edit-form.open{display:block;}
+.ht-ef-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+.ht-ef-row input,.ht-ef-row select{flex:1;min-width:100px;background:#fff;border:1px solid var(--bd2);border-radius:6px;padding:6px 9px;font-size:12px;font-family:"Inter",sans-serif;color:var(--t1);outline:none;}
+.ht-ef-row input:focus,.ht-ef-row select:focus{border-color:var(--pri);}
+/* wings section */
+.ht-wings{background:var(--surf2);border:1.5px solid var(--bd);border-radius:10px;padding:12px 14px;margin-top:16px;}
+.ht-wing-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px;margin-top:8px;}
+.ht-wing-item{background:var(--surface);border:1px solid var(--bd);border-radius:7px;padding:7px 10px;display:flex;align-items:center;justify-content:space-between;}
+.ht-wing-name{font-size:12px;font-weight:600;color:var(--t1);}
+.ht-wing-rank{font-size:10px;color:var(--t3);}
+@media(max-width:768px){
+  .ht-dsp-row{grid-template-columns:1fr;}
+  .ht-wing-grid{grid-template-columns:1fr 1fr;}
+}
+
+/* CALENDAR */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:8px;}
+.cal-hdr{text-align:center;font-size:10px;font-weight:700;color:var(--t4);padding:6px 0;font-family:'JetBrains Mono',monospace;}
+.cal-day{min-height:52px;background:var(--surface);border:1px solid var(--bd);border-radius:6px;padding:4px;cursor:pointer;transition:all .13s;}
+.cal-day:hover{border-color:var(--pri);background:var(--pri-g1);}
+.cal-day.today{border-color:var(--pri);background:var(--pri-g1);}
+.cal-day.has-tasks{border-color:var(--ip-bd);}
+.cal-day.other-month{opacity:.35;}
+.cal-dn{font-size:11px;font-weight:700;color:var(--t2);line-height:1;}
+.cal-today .cal-dn{color:var(--pri);font-weight:800;}
+.cal-dot{min-width:18px;height:18px;border-radius:10px;padding:0 5px;color:#fff;font-size:9px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;margin-top:3px;}
+.cal-dot.by-me{background:var(--pri);}
+.cal-dot.to-me{background:var(--cp-dot);}
+.cal-dot.ov{background:var(--ov-dot);}
+.cal-dots-row{display:flex;gap:3px;flex-wrap:wrap;margin-top:3px;}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.cal-nav-title{font-size:16px;font-weight:700;color:var(--t1);}
+.cal-nav-btn{background:var(--surf2);border:1px solid var(--bd);border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;font-weight:700;color:var(--t2);}
+
+/* SUBTASKS */
+.subtask-list{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+.subtask-item{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--surf2);border-radius:8px;border:1px solid var(--bd);}
+.subtask-item.done{opacity:.6;}
+.subtask-check{width:17px;height:17px;accent-color:var(--cp-dot);cursor:pointer;flex-shrink:0;}
+.subtask-title{flex:1;font-size:13px;font-weight:500;color:var(--t1);}
+.subtask-item.done .subtask-title{text-decoration:line-through;color:var(--t4);}
+.subtask-assignee{font-size:10px;color:var(--t3);white-space:nowrap;}
+.subtask-del{background:none;border:none;color:var(--t4);cursor:pointer;font-size:14px;padding:2px 4px;border-radius:4px;}
+.subtask-del:hover{color:var(--ov-tx);background:var(--ov-bg);}
+.subtask-add-row{display:flex;gap:6px;margin-top:8px;}
+.subtask-add-row input{flex:1;background:var(--surface);border:1.5px solid var(--bd);border-radius:7px;padding:7px 10px;font-size:13px;font-family:"Inter",sans-serif;color:var(--t1);outline:none;}
+.subtask-add-row input:focus{border-color:var(--pri);}
+.subtask-progress{height:4px;border-radius:2px;background:var(--bd);margin-top:8px;overflow:hidden;}
+.subtask-progress-fill{height:100%;border-radius:2px;background:var(--cp-dot);transition:width .3s;}
+
+/* SPINNER */
+.spin-wrap{display:flex;align-items:center;justify-content:center;gap:10px;padding:40px;color:var(--t3);font-size:13px;}
+.spinner{width:20px;height:20px;border:2.5px solid var(--bd);border-top-color:var(--pri);border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* WORKFLOW STRIP */
+.wf-strip{display:flex;gap:4px;align-items:center;margin-bottom:18px;padding:14px;background:var(--surface);border:1.5px solid var(--bd);border-radius:var(--r);overflow-x:auto;}
+.wf-step{flex:1;min-width:70px;background:var(--surf2);border-radius:8px;padding:10px 8px;text-align:center;position:relative;overflow:hidden;}
+.wf-top-bar{position:absolute;top:0;left:0;right:0;height:3px;border-radius:8px 8px 0 0;}
+.wf-num{font-size:17px;font-weight:800;color:var(--t4);margin-bottom:2px;}
+.wf-title{font-size:10px;font-weight:700;color:var(--t2);}
+.wf-sub{font-size:9px;color:var(--t4);}
+.wf-arr{color:var(--bd2);font-size:16px;flex-shrink:0;}
+.wf-ip .wf-top-bar,.wf-ip .wf-num{background:var(--ip-dot);color:var(--ip-dot);}
+.wf-ip .wf-top-bar{background:var(--ip-dot);}
+.wf-cl .wf-top-bar{background:var(--cl-dot);}
+.wf-cp .wf-top-bar{background:var(--cp-dot);}
+.wf-rp .wf-top-bar{background:var(--rp-dot);}
+
+/* PROFILE MENU */
+.profile-menu{display:none;position:absolute;top:calc(100% + 10px);right:0;background:#fff;border:1px solid var(--bd);border-radius:14px;box-shadow:var(--sh-modal);min-width:210px;overflow:hidden;z-index:600;}
+.profile-menu.open{display:block;}
+.pm-head{padding:14px 16px;background:linear-gradient(135deg,var(--pri),var(--pri-lt));color:#fff;}
+.pm-item{display:flex;align-items:center;gap:10px;padding:12px 16px;font-size:13px;font-weight:600;color:var(--t2);cursor:pointer;border-top:1px solid var(--bd);}
+.pm-item:hover{background:var(--surf2);}
+.pm-item.danger{color:#be123c;}
+
+/* ADMIN HIERARCHY EDITOR */
+.hier-table{width:100%;border-collapse:collapse;font-size:13px;}
+.hier-table th{padding:8px 10px;background:var(--surf2);text-align:left;font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;border-bottom:1.5px solid var(--bd);}
+.hier-table td{padding:8px 10px;border-bottom:1px solid var(--bd);}
+.hier-table tr:hover td{background:var(--surf2);}
+.hier-table input,.hier-table select{background:var(--surface);border:1px solid var(--bd);border-radius:5px;padding:4px 8px;font-size:12px;font-family:'Inter',sans-serif;color:var(--t1);width:100%;}
+.hier-table input:focus,.hier-table select:focus{outline:none;border-color:var(--pri);}
+
+/* ADMIN MULTI-SELECT */
+.admin-sel-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--pri-g1);border:1.5px solid var(--pri);border-radius:var(--r);margin-bottom:10px;}
+.admin-sel-bar span{font-size:13px;font-weight:700;color:var(--pri);flex:1;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .sidebar{display:none;}
+  .main{padding:14px 12px 24px;}
+  .stats-row{grid-template-columns:repeat(3,1fr);gap:7px;}
+  .sc{padding:9px 8px;}
+  .sc-ico{font-size:15px;}
+  .sc-val{font-size:18px;}
+  .sc-lbl{font-size:9px;}
+  .sc-desc,.sc-hint{font-size:9px;}
+  .frow{grid-template-columns:1fr;}
+  .det-meta{grid-template-columns:1fr;}
+  .hier-grid{grid-template-columns:1fr;}
+  .stats-row.admin-stats{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:769px){
+  .ham-btn{display:none;}
+  .drawer,.drawer-overlay{display:none!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-wrap" class="login-wrap">
+  <div class="login-card">
+    <div style="text-align:center;margin-bottom:20px;">
+      <svg width="60" height="60" viewBox="0 0 64 68" fill="none">
+  <defs>
+    <linearGradient id="sg1" x1="0" y1="0" x2="64" y2="68">
+      <stop stop-color="#c8860f"/>
+      <stop offset="1" stop-color="#1a3560"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 2 L60 12 L60 36 C60 52 46 63 32 67 C18 63 4 52 4 36 L4 12 Z" fill="url(#sg1)"/>
+  <path d="M32 8 L54 16 L54 36 C54 49 42 59 32 63 C22 59 10 49 10 36 L10 16 Z" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+  <text x="32" y="38" text-anchor="middle" font-size="26" font-family="serif" fill="white" opacity=".95">★</text>
+</svg>
+    </div>
+    <div class="lc-title">PTMS</div>
+    <div class="lc-sub">Police Task Management System</div>
+    <div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--t3);text-align:center;margin-bottom:20px;letter-spacing:.3px;">Alluri SeethaRama Raju District Police</div>
+    <div class="lc-err" id="login-err"></div>
+    <div class="fg" style="margin-bottom:12px;">
+      <div class="fl">Officer ID</div>
+      <input class="fc" id="login-id" type="text" placeholder="Enter your Officer ID" autocomplete="username" autocapitalize="characters">
+    </div>
+    <div class="fg" style="margin-bottom:20px;">
+      <div class="fl">Password</div>
+      <input class="fc" id="login-pw" type="password" placeholder="Enter password" autocomplete="current-password">
+    </div>
+    <button class="btn btn-primary btn-full" style="font-size:15px;padding:12px;" id="login-btn" onclick="doLogin()">Sign In →</button>
+    <div style="text-align:center;margin-top:16px;">
+      <span onclick="showForgotPassword()" style="font-size:12px;color:var(--t3);cursor:pointer;text-decoration:underline;text-underline-offset:3px;">Forgot password?</span>
+    </div>
+  </div>
+</div>
+
+<!-- Forgot Password panel (hidden by default) -->
+<div id="forgot-wrap" class="login-wrap" style="display:none;">
+  <div class="login-card">
+    <div style="text-align:center;margin-bottom:16px;">
+      <div style="font-size:32px;margin-bottom:8px;">🔑</div>
+      <div class="lc-title" style="font-size:20px;">Forgot Password</div>
+      <div style="font-size:12px;color:var(--t3);margin-top:6px;">Enter your Officer ID. A reset request will be sent to the Admin.</div>
+    </div>
+    <div class="lc-err" id="forgot-err"></div>
+    <div class="lc-err" id="forgot-ok" style="background:var(--cp-bg);border-color:var(--cp-bd);color:var(--cp-tx);"></div>
+    <div class="fg" style="margin-bottom:16px;">
+      <div class="fl">Officer ID</div>
+      <input class="fc" id="forgot-id" type="text" placeholder="Enter your Officer ID" autocapitalize="characters">
+    </div>
+    <button class="btn btn-primary btn-full" style="font-size:15px;padding:12px;" id="forgot-btn" onclick="doForgotPassword()">Send Reset Request →</button>
+    <div style="text-align:center;margin-top:14px;">
+      <span onclick="showLoginPage()" style="font-size:12px;color:var(--t3);cursor:pointer;text-decoration:underline;text-underline-offset:3px;">← Back to Sign In</span>
+    </div>
+  </div>
+</div>
+
+<!-- APP SHELL -->
+<div id="app-shell" style="display:none;">
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="tb-l">
+      <div class="ham-btn" onclick="openDrawer()" id="ham-btn">
+        <div class="ham-line"></div><div class="ham-line"></div><div class="ham-line"></div>
+      </div>
+      <svg width="28" height="30" viewBox="0 0 64 68" fill="none" style="flex-shrink:0;">
+        <defs><linearGradient id="st1" x1="0" y1="0" x2="64" y2="68"><stop stop-color="#e8950f"/><stop offset="1" stop-color="#1a3560"/></linearGradient></defs>
+        <path d="M32 2 L60 12 L60 36 C60 52 46 63 32 67 C18 63 4 52 4 36 L4 12 Z" fill="url(#st1)"/>
+        <text x="32" y="38" text-anchor="middle" font-size="26" font-family="serif" fill="white" opacity=".95">★</text>
+      </svg>
+      <div class="tb-brand"><div class="t1">PTMS</div><div class="t2">ASR District Police</div></div>
+    </div>
+    <div style="position:relative;">
+      <div class="name-btn" id="profile-btn" onclick="toggleProfileMenu()">
+        <div class="name-btn-initial" id="profile-initial">S</div>
+        <span class="name-btn-label" id="oc-name">—</span>
+        <span class="name-btn-arrow">▾</span>
+      </div>
+      <div class="profile-menu" id="profile-menu">
+        <div class="pm-item" onclick="openChgPwModal();closeProfileMenu()">🔑 Change Password</div>
+        <div class="pm-item danger" onclick="doLogout()">⏻ Logout</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer" id="the-drawer">
+    <div class="drawer-head">
+      <div class="drawer-name" id="drawer-name">Officer Name</div>
+      <div class="drawer-rank" id="drawer-rank">Rank</div>
+    </div>
+    <div id="drawer-officer" style="display:none;">
+      <div class="nav-sec">Main</div>
+      <div class="nav-item" onclick="goto('dashboard');closeDrawer()"><div class="ndot"></div><div class="nlbl">Dashboard</div></div>
+      <div class="nav-sec">Tasks</div>
+      <div class="nav-item" onclick="goto('assigned');closeDrawer()"><div class="ndot"></div><div class="nlbl">Assigned by Me</div><div class="nbadge" id="dnb-assigned">0</div></div>
+      <div class="nav-item" onclick="goto('mytasks');closeDrawer()"><div class="ndot"></div><div class="nlbl">My Tasks</div><div class="nbadge" id="dnb-mytasks">0</div></div>
+      <div class="nav-item" onclick="goto('approval');closeDrawer()"><div class="ndot"></div><div class="nlbl">Awaiting Approval</div><div class="nbadge alert hide" id="dnb-approval">0</div></div>
+      <div class="nav-item" onclick="goto('calendar');closeDrawer()"><div class="ndot"></div><div class="nlbl">📅 Task Calendar</div></div>
+      <div class="nav-sec">Account</div>
+      <div class="nav-item" onclick="openChgPwModal();closeDrawer()"><div class="ndot"></div><div class="nlbl">Change Password</div></div>
+      <div class="nav-item" style="color:#be123c;" onclick="doLogout()"><div class="ndot"></div><div class="nlbl">Logout</div></div>
+    </div>
+    <div id="drawer-admin" style="display:none;">
+      <div class="nav-sec">Admin Panel</div>
+      <div class="nav-item" onclick="goto('admin_dashboard');closeDrawer()"><div class="ndot"></div><div class="nlbl">Overview</div></div>
+      <div class="nav-item" onclick="goto('admin_tasks');closeDrawer()"><div class="ndot"></div><div class="nlbl">All Tasks</div></div>
+      <div class="nav-item" onclick="goto('admin_officers');closeDrawer()"><div class="ndot"></div><div class="nlbl">Officer Stats</div></div>
+      <div class="nav-item" onclick="goto('admin_activity');closeDrawer()"><div class="ndot"></div><div class="nlbl">All Activity</div></div>
+      <div class="nav-item" onclick="goto('admin_hierarchy');closeDrawer()"><div class="ndot"></div><div class="nlbl">Hierarchy</div></div>
+      <div class="nav-item" onclick="goto('admin_stations');closeDrawer()"><div class="ndot"></div><div class="nlbl">Police Stations</div></div>
+      <div class="nav-sec">Account</div>
+      <div class="nav-item danger" style="color:#be123c;" onclick="doLogout()"><div class="ndot"></div><div class="nlbl">Logout</div></div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <!-- Sidebar (desktop) -->
+    <nav class="sidebar" id="the-sidebar">
+      <div id="sb-officer">
+        <div class="nav-sec">Main</div>
+        <div class="nav-item active" id="nav-dashboard" onclick="goto('dashboard')"><div class="ndot"></div><div class="nlbl">Dashboard</div></div>
+        <div class="nav-sec">Tasks</div>
+        <div class="nav-item" id="nav-assigned" onclick="goto('assigned')"><div class="ndot"></div><div class="nlbl">Assigned by Me</div><div class="nbadge" id="nb-assigned">0</div></div>
+        <div class="nav-item" id="nav-mytasks" onclick="goto('mytasks')"><div class="ndot"></div><div class="nlbl">My Tasks</div><div class="nbadge" id="nb-mytasks">0</div></div>
+        <div class="nav-item" id="nav-approval" onclick="goto('approval')"><div class="ndot"></div><div class="nlbl">Awaiting Approval</div><div class="nbadge alert hide" id="nb-approval">0</div></div>
+        <div class="nav-item" id="nav-calendar" onclick="goto('calendar')"><div class="ndot"></div><div class="nlbl">📅 Task Calendar</div></div>
+        <div class="sb-foot"><p>PTMS v3 · RESTRICTED</p></div>
+      </div>
+      <div id="sb-admin" style="display:none;">
+        <div class="nav-sec">Admin Panel</div>
+        <div class="nav-item" id="nav-admin_dashboard" onclick="goto('admin_dashboard')"><div class="ndot"></div><div class="nlbl">Overview</div></div>
+        <div class="nav-item" id="nav-admin_tasks" onclick="goto('admin_tasks')"><div class="ndot"></div><div class="nlbl">All Tasks</div></div>
+        <div class="nav-item" id="nav-admin_officers" onclick="goto('admin_officers')"><div class="ndot"></div><div class="nlbl">Officer Stats</div></div>
+        <div class="nav-item" id="nav-admin_activity" onclick="goto('admin_activity')"><div class="ndot"></div><div class="nlbl">All Activity</div></div>
+        <div class="nav-item" id="nav-admin_hierarchy" onclick="goto('admin_hierarchy')"><div class="ndot"></div><div class="nlbl">Hierarchy</div></div>
+        <div class="nav-item" id="nav-admin_stations" onclick="goto('admin_stations')"><div class="ndot"></div><div class="nlbl">Police Stations</div></div>
+        <div class="sb-foot"><p>PTMS Admin · SYSTEM</p></div>
+      </div>
+    </nav>
+    <main class="main" id="main-content"></main>
+  </div>
+</div>
+
+<!-- MODALS -->
+
+<!-- Assign Task -->
+<div class="modal-mask" id="modal-assign">
+  <div class="mbox" style="max-width:500px;">
+    <div class="mhead"><h3>Assign New Task</h3><button class="mcls" onclick="closeModal('modal-assign')">✕</button></div>
+    <div class="mbody">
+      <div class="fg">
+        <div class="fl" style="display:flex;justify-content:space-between;align-items:center;">
+          <span>Assign To *</span>
+          <span style="color:var(--pri);font-weight:700;font-size:12px;" id="sel-count"></span>
+        </div>
+        <input type="text" class="fc" id="officer-search" placeholder="🔍 Search officers…" oninput="filterOfficerList()" style="margin-bottom:6px;">
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:6px;flex-wrap:wrap;">
+          <label style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--pri);cursor:pointer;">
+            <input type="checkbox" id="chk-all" onchange="toggleSelectAll()"> Select All
+          </label>
+          <button type="button" style="font-size:11px;font-weight:700;color:#166534;background:#f0fdf4;border:1px solid #86efac;border-radius:6px;padding:3px 10px;cursor:pointer;" onclick="selectSHOs()">⭐ SHOs Only</button>
+        </div>
+        <div id="officer-checkboxes" style="border:1.5px solid var(--bd);border-radius:8px;overflow-y:auto;height:200px;background:var(--surface);">
+          <div style="padding:10px;color:var(--t3);font-size:13px;">Loading…</div>
+        </div>
+      </div>
+      <div class="fg"><div class="fl">Task Title *</div><input class="fc" id="f-title" type="text" placeholder="Enter task title…"></div>
+      <div class="frow">
+        <div class="fg"><div class="fl">Category *</div><select class="fc" id="f-cat"><option value="Crime">Crime Related</option><option value="Land Dispute">Land Dispute</option><option value="Admin">Admin Matters</option><option value="Meeting">Meetings</option><option value="Other">Others</option></select></div>
+        <div class="fg"><div class="fl">Priority *</div><select class="fc" id="f-priority"><option value="High">High</option><option value="Low">Low</option></select></div>
+      </div>
+      <div class="fg" id="date-row">
+        <div class="fl">Target Date *</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <input class="fc" id="f-target-date" type="date" onchange="updateDueHint()" style="cursor:pointer;flex:1;">
+          <label class="urgent-chk-label">
+            <input type="checkbox" id="f-urgent" onchange="onUrgentChange()" style="width:15px;height:15px;accent-color:#dc2626;cursor:pointer;">
+            <span>🔴 Urgent</span>
+          </label>
+        </div>
+        <div class="f-hint" id="due-hint"></div>
+      </div>
+      <div class="fg"><div class="fl">Description</div><textarea class="fc" id="f-desc" placeholder="Describe the task…"></textarea></div>
+      <div class="fg">
+        <div class="fl">Sub-Tasks <span style="font-size:9px;color:var(--t4);font-weight:400;">(optional — add checklist items)</span></div>
+        <div id="f-subtask-list" class="subtask-list" style="margin-bottom:6px;"></div>
+        <div class="subtask-add-row">
+          <input type="text" id="f-subtask-input" placeholder="Add sub-task… press Enter" onkeydown="if(event.key==='Enter'){event.preventDefault();addAssignSubTask();}">
+          <button type="button" class="btn btn-ghost btn-sm" onclick="addAssignSubTask()">+ Add</button>
+        </div>
+      </div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-ghost" onclick="closeModal('modal-assign')">Cancel</button>
+      <button class="btn btn-primary" id="btn-assign" onclick="doAssign()">✦ Assign Task</button>
+    </div>
+  </div>
+</div>
+
+<!-- Task Detail -->
+<div class="modal-mask" id="modal-detail">
+  <div class="mbox" style="max-width:680px;">
+    <div class="mhead"><h3 id="detail-title">Task Detail</h3><button class="mcls" onclick="closeModal('modal-detail')">✕</button></div>
+    <div class="mbody" id="detail-body"></div>
+    <div class="mfoot" id="detail-foot"></div>
+  </div>
+</div>
+
+<!-- Submit Compliance -->
+<div class="modal-mask" id="modal-submit">
+  <div class="mbox">
+    <div class="mhead"><h3>Submit Compliance Report</h3><button class="mcls" onclick="closeModal('modal-submit')">✕</button></div>
+    <div class="mbody">
+      <div class="ibox ibox-green">Write your compliance report below. Status stays <strong>In Progress</strong> until your superior approves.</div>
+      <div class="fg"><div class="fl">Compliance Report *</div><textarea class="fc" id="compliance-text" style="min-height:130px;" placeholder="Describe the action taken and outcome…"></textarea></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-ghost" onclick="closeModal('modal-submit')">Cancel</button>
+      <button class="btn btn-primary" onclick="doSubmit()">⊛ Submit Compliance</button>
+    </div>
+  </div>
+</div>
+
+<!-- Reopen -->
+<div class="modal-mask" id="modal-reopen">
+  <div class="mbox">
+    <div class="mhead"><h3>Reopen Task</h3><button class="mcls" onclick="closeModal('modal-reopen')">✕</button></div>
+    <div class="mbody">
+      <div class="ibox ibox-amber">Provide clear remarks explaining what needs to be redone. The task will be sent back to the officer.</div>
+      <div class="fg"><div class="fl">Remarks *</div><textarea class="fc" id="reopen-text" style="min-height:110px;" placeholder="Explain what needs to be redone…"></textarea></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-ghost" onclick="closeModal('modal-reopen')">Cancel</button>
+      <button class="btn btn-danger" onclick="doReopen()">↺ Reopen Task</button>
+    </div>
+  </div>
+</div>
+
+<!-- Import Tasks -->
+<div class="modal-mask" id="modal-import-tasks">
+  <div class="mbox" style="max-width:480px;">
+    <div class="mhead"><h3>📤 Import Tasks from Excel</h3><button class="mcls" onclick="closeModal('modal-import-tasks')">✕</button></div>
+    <div class="mbody">
+      <div class="notice n-warn" style="display:flex;">
+        <div class="ni">⚠</div>
+        <div><strong>Maintenance Restore</strong> — Upload the Excel file exported from this system. Tasks will be re-created exactly as exported. Existing tasks with the same ID will be skipped.</div>
+      </div>
+      <div class="fg">
+        <div class="fl">Select Excel File (.xlsx)</div>
+        <input type="file" id="import-file" accept=".csv,.xlsx" class="fc" style="padding:8px;">
+      </div>
+      <div id="import-status" style="font-size:13px;color:var(--t3);display:none;"></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-ghost" onclick="closeModal('modal-import-tasks')">Cancel</button>
+      <button class="btn btn-primary" id="import-btn" onclick="doImportTasks()">📤 Import Tasks</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add/Edit Police Station -->
+<div class="modal-mask" id="modal-station">
+  <div class="mbox" style="max-width:460px;">
+    <div class="mhead"><h3 id="station-modal-title">Add Police Station</h3><button class="mcls" onclick="closeModal('modal-station')">✕</button></div>
+    <div class="mbody">
+      <div class="frow">
+        <div class="fg"><div class="fl">Station Name *</div><input class="fc" id="st-name" placeholder="e.g. Paderu PS"></div>
+        <div class="fg"><div class="fl">Station ID *</div><input class="fc" id="st-sid" placeholder="e.g. PS_PDR" style="text-transform:uppercase;"></div>
+      </div>
+      <div class="fg"><div class="fl">Division</div>
+        <select class="fc" id="st-div">
+          <option value="">— Select Division —</option>
+          <option value="Paderu">Paderu Division</option>
+          <option value="Chinthapalli">Chinthapalli Division</option>
+          <option value="Rampachodavaram">Rampachodavaram Division</option>
+          <option value="Chinturu">Chinturu Division</option>
+          <option value="Armed Reserve">Armed Reserve</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="fg"><div class="fl">Station House Officer (SHO)</div>
+        <select class="fc" id="st-sho"><option value="">— Not assigned —</option></select>
+        <div class="f-hint">Select the CI, Inspector, or SI who heads this station</div>
+      </div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-ghost" onclick="closeModal('modal-station')">Cancel</button>
+      <button class="btn btn-primary" id="station-save-btn" onclick="saveStation()">+ Add Station</button>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Task -->
+<div class="modal-mask" id="modal-edit-task">
+  <div class="mbox" style="max-width:500px;">
+    <div class="mhead"><h3>Edit Task</h3><button class="mcls" onclick="closeModal('modal-edit-task')">✕</button></div>
+    <div class="mbody">
+      <div class="fg"><div class="fl">Task Title *</div><input class="fc" id="et-title" type="text" placeholder="Task title…"></div>
+      <div class="frow">
+        <div class="fg"><div class="fl">Category *</div><select class="fc" id="et-cat"><option value="Crime">Crime Related</option><option value="Land Dispute">Land Dispute</option><option value="Admin">Admin Matters</option><option value="Meeting">Meetings</option><option value="Other">Others</option></select></div>
+        <div class="fg"><div class="fl">Priority *</div><select class="fc" id="et-priority"><option value="High">High</option><option value="Low">Low</option></select></div>
+      </div>
+      <div class="fg"><div class="fl">Description</div><textarea class="fc" id="et-desc" placeholder="Task description…" style="min-height:80px;"></textarea></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-ghost" onclick="closeModal('modal-edit-task')">Cancel</button>
+      <button class="btn btn-primary" onclick="doEditTask()">💾 Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- Reassign -->
+<div class="modal-mask" id="modal-reassign">
+  <div class="mbox">
+    <div class="mhead"><h3>Reassign Task</h3><button class="mcls" onclick="closeModal('modal-reassign')">✕</button></div>
+    <div class="mbody">
+      <div class="ibox ibox-blue">Task will be reassigned and status reset to <strong>In Progress</strong>.</div>
+      <div class="fg"><div class="fl">Assign To *</div><select class="fc" id="reassign-to"><option value="">Loading…</option></select></div>
+      <div class="fg"><div class="fl">Reason</div><textarea class="fc" id="reassign-reason" placeholder="Reason for reassignment…" style="min-height:80px;"></textarea></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-ghost" onclick="closeModal('modal-reassign')">Cancel</button>
+      <button class="btn btn-warn" onclick="doReassign()">↔ Reassign</button>
+    </div>
+  </div>
+</div>
+
+<!-- Extend Due Date -->
+<div class="modal-mask" id="modal-extend">
+  <div class="mbox">
+    <div class="mhead"><h3>Extend Due Date</h3><button class="mcls" onclick="closeModal('modal-extend')">✕</button></div>
+    <div class="mbody">
+      <div class="ibox ibox-amber">Request a due date extension. The new date must be later than the current due date.</div>
+      <div class="fg"><div class="fl">Current Due Date</div><div id="extend-current" style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:var(--t1);padding:4px 0;"></div></div>
+      <div class="fg"><div class="fl">New Due Date *</div><input class="fc" id="extend-date" type="date" style="cursor:pointer;"></div>
+      <div class="fg"><div class="fl">Reason *</div><textarea class="fc" id="extend-reason" placeholder="Reason for extension…" style="min-height:80px;"></textarea></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-ghost" onclick="closeModal('modal-extend')">Cancel</button>
+      <button class="btn btn-warn" onclick="doExtend()">📅 Extend Deadline</button>
+    </div>
+  </div>
+</div>
+
+<!-- Approve Confirmation -->
+<div class="modal-mask" id="modal-approve">
+  <div class="mbox" style="max-width:400px;">
+    <div class="mhead"><h3>Approve Task</h3><button class="mcls" onclick="closeModal('modal-approve')">✕</button></div>
+    <div class="mbody">
+      <div style="text-align:center;padding:10px 0 6px;">
+        <div style="font-size:36px;margin-bottom:10px;">✔</div>
+        <div style="font-size:15px;font-weight:700;color:var(--t1);margin-bottom:6px;">Confirm Approval</div>
+        <div style="font-size:13px;color:var(--t3);">This will mark the task as <strong>Completed</strong> and close it. This action cannot be undone.</div>
+      </div>
+    </div>
+    <div class="mfoot" style="justify-content:center;gap:12px;">
+      <button class="btn btn-ghost" onclick="closeModal('modal-approve')">Cancel</button>
+      <button class="btn btn-success" onclick="doApproveConfirmed()" style="padding:10px 28px;">✔ Approve & Complete</button>
+    </div>
+  </div>
+</div>
+
+<!-- Change Password -->
+<div class="modal-mask" id="modal-chgpw">
+  <div class="mbox">
+    <div class="mhead"><h3>Change Password</h3><button class="mcls" onclick="closeModal('modal-chgpw')">✕</button></div>
+    <div class="mbody">
+      <div class="fg"><div class="fl">Current Password *</div><input class="fc" id="chpw-cur" type="password" placeholder="Current password"></div>
+      <div class="fg"><div class="fl">New Password *</div><input class="fc" id="chpw-new" type="password" placeholder="Min 8 characters"></div>
+      <div class="fg"><div class="fl">Confirm New Password *</div><input class="fc" id="chpw-conf" type="password" placeholder="Repeat new password"></div>
+      <div class="lc-err" id="chpw-err" style="display:none;"></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-ghost" onclick="closeModal('modal-chgpw')">Cancel</button>
+      <button class="btn btn-primary" onclick="doChangePassword()">🔑 Update Password</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admin: Reset Password -->
+<div class="modal-mask" id="modal-resetpw">
+  <div class="mbox">
+    <div class="mhead"><h3>Reset Officer Password</h3><button class="mcls" onclick="closeModal('modal-resetpw')">✕</button></div>
+    <div class="mbody">
+      <div id="resetpw-info" style="font-size:13px;color:var(--t2);padding:4px 0;"></div>
+      <div class="fg"><div class="fl">New Password *</div><input class="fc" id="resetpw-new" type="password" placeholder="Min 8 chars"></div>
+      <div class="fg"><div class="fl">Confirm *</div><input class="fc" id="resetpw-conf" type="password" placeholder="Repeat"></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-ghost" onclick="closeModal('modal-resetpw')">Cancel</button>
+      <button class="btn btn-danger" onclick="doResetPassword()">Reset Password</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admin: Add Officer -->
+<div class="modal-mask" id="modal-add-officer">
+  <div class="mbox">
+    <div class="mhead"><h3>Add New Officer</h3><button class="mcls" onclick="closeModal('modal-add-officer')">✕</button></div>
+    <div class="mbody">
+      <div class="ibox ibox-amber">New officer gets default password <code>12345678</code>.</div>
+      <div class="frow">
+        <div class="fg"><div class="fl">Officer ID *</div><input class="fc" id="ao-id" type="text" placeholder="e.g. DSP3" style="text-transform:uppercase;" autocapitalize="characters"></div>
+        <div class="fg"><div class="fl">Rank *</div><input class="fc" id="ao-rank" type="text" placeholder="e.g. DSP"></div>
+      </div>
+      <div class="fg"><div class="fl">Full Name *</div><input class="fc" id="ao-name" type="text" placeholder="Full name"></div>
+      <div class="frow">
+        <div class="fg"><div class="fl">Level *</div><select class="fc" id="ao-level"><option value="1">1 — Addl.SP</option><option value="2">2 — DSP/Wing</option><option value="3">3 — Inspector/CI</option><option value="4" selected>4 — SI</option></select></div>
+        <div class="fg"><div class="fl">Reports To *</div><select class="fc" id="ao-rto"><option value="">Loading…</option></select></div>
+      </div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-ghost" onclick="closeModal('modal-add-officer')">Cancel</button>
+      <button class="btn btn-primary" onclick="doAddOfficer()">+ Add Officer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Hierarchy Edit/Add Modal -->
+<div class="modal-mask" id="modal-ht-edit">
+  <div class="mbox" style="max-width:460px;">
+    <div class="mhead"><h3 id="ht-modal-title">Edit Officer</h3><button class="mcls" onclick="closeModal('modal-ht-edit')">✕</button></div>
+    <div class="mbody">
+      <div class="notice n-warn" id="ht-modal-warning" style="display:none;">
+        <div class="ni">⚠</div><div id="ht-modal-warning-text"></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><div class="fl">Officer ID *</div><input class="fc" id="ht-f-id" placeholder="e.g. DSP3" style="text-transform:uppercase;"></div>
+        <div class="fg"><div class="fl">Rank *</div><input class="fc" id="ht-f-rank" placeholder="e.g. DSP" style="max-width:100%;"></div>
+      </div>
+      <div class="fg"><div class="fl">Full Name *</div><input class="fc" id="ht-f-name" placeholder="Full name"></div>
+      <div class="frow">
+        <div class="fg"><div class="fl">Reports To *</div><select class="fc" id="ht-f-rto"><option value="">— None —</option></select></div>
+        <div class="fg"><div class="fl">Level</div><input class="fc" id="ht-f-level" type="number" min="0" max="5" placeholder="Level"></div>
+      </div>
+    </div>
+    <div class="mfoot">
+      <button class="btn btn-ghost" onclick="closeModal('modal-ht-edit')">Cancel</button>
+      <button class="btn btn-primary" id="ht-modal-save-btn" onclick="htModalSave()">💾 Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admin: Hierarchy Editor -->
+<div class="modal-mask" id="modal-hier-editor">
+  <div class="mbox" style="max-width:800px;">
+    <div class="mhead">
+      <h3>Edit Hierarchy</h3>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-primary btn-sm" onclick="saveHierarchy()">💾 Save</button>
+        <button class="mcls" onclick="closeModal('modal-hier-editor')">✕</button>
+      </div>
+    </div>
+    <div class="mbody" style="padding:12px;">
+      <div class="notice n-warn" id="hier-pending-notice" style="display:none;">
+        <div class="ni">⚠</div>
+        <div id="hier-pending-text"></div>
+      </div>
+      <div style="overflow-x:auto;"><table class="hier-table" id="hier-edit-table"><thead><tr><th>ID</th><th>Name</th><th>Rank</th><th>Level</th><th>Reports To</th></tr></thead><tbody id="hier-tbody"></tbody></table></div>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const API_BASE = window.location.hostname==='localhost'?'http://localhost:8000':'';
+let _token='', _user=null, _activeTaskId=null;
+let currentPage='dashboard';
+
+function authH(){return _token?{Authorization:`Bearer ${_token}`,'Content-Type':'application/json'}:{'Content-Type':'application/json'};}
+
+async function apiFetch(path,opts={}){
+  const res=await fetch(API_BASE+path,{headers:authH(),...opts});
+  if(res.status===401){doLogout();throw new Error('Session expired.');}
+  if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.detail||`HTTP ${res.status}`);}
+  return res.json();
+}
+
+/* ── LOGIN ──────────────────────────────────────────── */
+async function doLogin(){
+  const id=document.getElementById('login-id').value.trim().toUpperCase();
+  const pw=document.getElementById('login-pw').value;
+  const err=document.getElementById('login-err');
+  const btn=document.getElementById('login-btn');
+  err.style.display='none';
+  btn.disabled=true; btn.textContent='Signing in…';
+  try{
+    const res=await fetch(`${API_BASE}/api/auth/login`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({officer_id:id,password:pw}),
+    });
+    if(!res.ok){const e=await res.json();throw new Error(e.detail||'Login failed');}
+    const d=await res.json();
+    _token=d.access_token; _user=d.officer;
+    localStorage.setItem('ptms_token',_token);
+    localStorage.setItem('ptms_user',JSON.stringify(_user));
+    sessionStorage.removeItem('ptms_page');
+    startApp();
+  }catch(e){err.textContent=e.message;err.style.display='block';}
+  finally{btn.disabled=false;btn.textContent='Sign In →';}
+}
+function showForgotPassword(){
+  document.getElementById('login-wrap').style.display='none';
+  document.getElementById('forgot-wrap').style.display='flex';
+  document.getElementById('forgot-err').style.display='none';
+  document.getElementById('forgot-ok').style.display='none';
+  document.getElementById('forgot-id').value='';
+}
+function showLoginPage(){
+  document.getElementById('forgot-wrap').style.display='none';
+  document.getElementById('login-wrap').style.display='flex';
+}
+async function doForgotPassword(){
+  const id=document.getElementById('forgot-id').value.trim().toUpperCase();
+  const err=document.getElementById('forgot-err');
+  const ok=document.getElementById('forgot-ok');
+  const btn=document.getElementById('forgot-btn');
+  err.style.display='none'; ok.style.display='none';
+  if(!id){err.textContent='Please enter your Officer ID.';err.style.display='block';return;}
+  btn.disabled=true; btn.textContent='Sending…';
+  try{
+    await fetch(API_BASE+'/api/auth/forgot-password',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({officer_id:id})
+    });
+    ok.textContent='✔ Request sent. Please contact your superior or the Admin to reset your password. (Officer ID: '+id+')';
+    ok.style.display='block';
+    btn.disabled=true; btn.textContent='Request Sent';
+  }catch(e){
+    // Even on error show success to avoid ID enumeration
+    ok.textContent='✔ Request sent. Please contact your superior or the Admin to reset your password.';
+    ok.style.display='block';
+  }finally{if(btn.textContent!=='Request Sent'){btn.disabled=false;btn.textContent='Send Reset Request →';}}
+}
+function doLogout(){
+  sessionStorage.removeItem('ptms_page');
+  closeDrawer();
+  showLogin();
+}
+document.getElementById('login-pw').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+
+/* ── APP START ──────────────────────────────────────── */
+function showLogin(){
+  _token=''; _user=null;
+  localStorage.removeItem('ptms_token');
+  localStorage.removeItem('ptms_user');
+  document.getElementById('login-wrap').style.display='flex';
+  document.getElementById('app-shell').style.display='none';
+}
+
+async function startApp(){
+  const saved=localStorage.getItem('ptms_token');
+  if(saved&&!_token){
+    _token=saved;
+    const u=localStorage.getItem('ptms_user');
+    if(u){try{_user=JSON.parse(u);}catch{}}
+  }
+  if(!_token||!_user){
+    showLogin();
+    return;
+  }
+  // Validate token with a lightweight check before loading any page
+  try{
+    await fetch(API_BASE+'/api/stats/',{headers:{Authorization:'Bearer '+_token,'Content-Type':'application/json'}})
+      .then(r=>{ if(r.status===401) throw new Error('expired'); });
+  }catch(e){
+    showLogin();
+    return;
+  }
+  document.getElementById('login-wrap').style.display='none';
+  document.getElementById('app-shell').style.display='block';
+
+  // Setup topbar
+  document.getElementById('oc-name').textContent=_user.id==='ADMIN'?'Admin':_user.name;
+  document.getElementById('profile-initial').textContent=(_user.name||'?')[0].toUpperCase();
+  document.getElementById('drawer-name').textContent=_user.id==='ADMIN'?'Admin':_user.name;
+  document.getElementById('drawer-rank').textContent=_user.rank;
+
+  const isAdmin=_user.id==='ADMIN';
+  document.getElementById('sb-officer').style.display=isAdmin?'none':'block';
+  document.getElementById('sb-admin').style.display=isAdmin?'block':'none';
+  document.getElementById('drawer-officer').style.display=isAdmin?'none':'block';
+  document.getElementById('drawer-admin').style.display=isAdmin?'block':'none';
+
+  const saved2=sessionStorage.getItem('ptms_page')||'';
+  const officerPages=['dashboard','assigned','mytasks','approval','calendar','hierarchy'];
+  const adminPages=['admin_dashboard','admin_tasks','admin_officers','admin_activity','admin_hierarchy','admin_stations'];
+  if(isAdmin){
+    const p=adminPages.includes(saved2)?saved2:'admin_dashboard';
+    goto(p);
+  } else {
+    const p=officerPages.includes(saved2)?saved2:'dashboard';
+    goto(p);
+  }
+}
+
+/* ── NAVIGATION ──────────────────────────────────────── */
+async function goto(page){
+  currentPage=page;
+  sessionStorage.setItem('ptms_page',page);
+  const isAdmin=_user&&_user.id==='ADMIN';
+  const adminPages=['admin_dashboard','admin_tasks','admin_officers','admin_activity','admin_hierarchy','admin_stations'];
+  const officerPages=['dashboard','assigned','mytasks','approval','calendar','hierarchy'];
+  if(isAdmin&&!adminPages.includes(page)) page='admin_dashboard';
+  if(!isAdmin&&adminPages.includes(page)) page='dashboard';
+  // Update active state
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
+  const ni=document.getElementById('nav-'+page);
+  if(ni) ni.classList.add('active');
+  await renderPage();
+}
+
+async function renderPage(){
+  const isAdmin=_user&&_user.id==='ADMIN';
+  document.getElementById('main-content').innerHTML='<div class="spin-wrap"><div class="spinner"></div>Loading…</div>';
+  const officerMap={dashboard:pgDashboard,assigned:pgAssigned,mytasks:pgMyTasks,approval:pgApproval,calendar:pgCalendar,hierarchy:pgHierarchy};
+  const adminMap={admin_dashboard:pgAdminDashboard,admin_tasks:pgAdminTasks,admin_officers:pgAdminOfficers,admin_activity:pgAdminActivity,admin_hierarchy:pgAdminHierarchy,admin_stations:pgAdminStations};
+  try{
+    if(isAdmin)(adminMap[currentPage]||pgAdminDashboard)();
+    else (officerMap[currentPage]||pgDashboard)();
+  }catch(e){
+    document.getElementById('main-content').innerHTML=`<div style="color:var(--ov-tx);padding:20px;">Error: ${e.message}</div>`;
+  }
+}
+
+/* ── DRAWER ──────────────────────────────────────────── */
+function openDrawer(){
+  document.getElementById('the-drawer').classList.add('open');
+  document.getElementById('drawer-overlay').classList.add('open');
+}
+function closeDrawer(){
+  document.getElementById('the-drawer').classList.remove('open');
+  document.getElementById('drawer-overlay').classList.remove('open');
+}
+
+/* ── PROFILE MENU ────────────────────────────────────── */
+function toggleProfileMenu(){document.getElementById('profile-menu').classList.toggle('open');}
+function closeProfileMenu(){document.getElementById('profile-menu').classList.remove('open');}
+document.addEventListener('click',e=>{
+  const pm=document.getElementById('profile-menu');
+  const pb=document.getElementById('profile-btn');
+  if(pm&&pb&&!pb.contains(e.target)&&!pm.contains(e.target)) pm.classList.remove('open');
+  const op=document.getElementById('officer-panel');
+  const ow=document.getElementById('officer-dropdown-wrap');
+  if(op&&ow&&!ow.contains(e.target)) op.style.display='none';
+});
+
+/* ── BADGES ──────────────────────────────────────────── */
+async function refreshBadges(){
+  try{
+    const [asgn,my,appr]=await Promise.all([
+      apiFetch('/api/tasks/assigned-by-me'),
+      apiFetch('/api/tasks/my-tasks'),
+      apiFetch('/api/tasks/awaiting-approval'),
+    ]);
+    const today=new Date().toISOString().split('T')[0];
+    const activeAsgn=asgn.filter(t=>t.status!=='Completed').length;
+    const activeMy=my.filter(t=>t.status!=='Completed').length;
+    const pendingAppr=appr.length;
+    ['nb-assigned','dnb-assigned'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el){el.textContent=activeAsgn;el.classList.toggle('hide',activeAsgn===0);}
+    });
+    ['nb-mytasks','dnb-mytasks'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el){el.textContent=activeMy;el.classList.toggle('hide',activeMy===0);}
+    });
+    ['nb-approval','dnb-approval'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el){el.textContent=pendingAppr;el.classList.toggle('hide',pendingAppr===0);}
+    });
+  }catch{}
+}
+
+/* ── UTILS ───────────────────────────────────────────── */
+function addDays(n){const d=new Date();d.setDate(d.getDate()+n);return d.toISOString().split('T')[0];}
+function fmtD(s){if(!s)return '—';const [y,m,d]=s.split('-');return `${d}/${m}/${y}`;}
+function fmtDT(s){if(!s)return '—';const d=new Date(s);return d.toLocaleDateString('en-IN')+' '+d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});}
+function isMobile(){return window.innerWidth<=768;}
+function displayStatus(t){
+  if(t.status==='Completed') return 'Completed';
+  if(t.status==='Closure Pending') return 'Closure Pending';
+  if(t.status==='Reopened') return 'Reopened';
+  if(t.due_date<new Date().toISOString().split('T')[0]) return 'Overdue';
+  return 'In Progress';
+}
+function statusBarClass(ds){
+  return {'In Progress':'tc-bar-ip','Completed':'tc-bar-cp','Overdue':'tc-bar-ov','Reopened':'tc-bar-rp','Closure Pending':'tc-bar-cl'}[ds]||'tc-bar-ip';
+}
+function buildCountdown(dueDate,status){
+  if(status==='Completed') return '';
+  const now=new Date();
+  const due=new Date(dueDate+'T23:59:59');
+  const diffMs=due-now;
+  const diffH=Math.floor(diffMs/3600000);
+  const diffD=Math.floor(diffMs/86400000);
+  let cls,label;
+  if(diffMs<0){
+    const overH=Math.abs(Math.floor(diffMs/3600000));
+    const overD=Math.floor(overH/24);
+    label=overD>0?`▲ ${overD}d ${overH%24}h overdue`:`▲ ${overH}h overdue`;
+    cls='tc-cd-over';
+  } else if(diffH<6){
+    label=`⚡ ${diffH}h ${Math.floor((diffMs%3600000)/60000)}m left`;
+    cls='tc-cd-urgent';
+  } else if(diffD<2){
+    label=`⏰ ${diffH}h left`;
+    cls='tc-cd-warn';
+  } else {
+    label=`⏱ ${diffD}d ${diffH%24}h left`;
+    cls='tc-cd-ok';
+  }
+  return `<span class="tc-countdown ${cls}">${label}</span>`;
+}
+
+function showToast(msg,color='#166534'){
+  const t=document.createElement('div');
+  t.style.cssText=`position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:${color};color:#fff;padding:10px 22px;border-radius:8px;font-weight:700;font-size:13px;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,.25);white-space:nowrap;`;
+  t.textContent=msg;
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(),3000);
+}
+
+/* ── TASK LIST BUILDERS ──────────────────────────────── */
+function buildList(list,showTo){
+  if(!list.length) return '<div class="empty"><div class="empty-ico">✦</div><div class="empty-title">No tasks found</div><div class="empty-sub">Try adjusting your filters</div></div>';
+  if(isMobile()) return buildCards(list,showTo);
+  return buildTable(list,showTo);
+}
+
+function buildCards(list,showTo){
+  return '<div class="card-list">'+list.map(t=>{
+    const ds=displayStatus(t);
+    const nm=showTo?t.assigned_to_name:t.assigned_by_name;
+    const rk=showTo?t.assigned_to_rank:t.assigned_by_rank;
+    const bc=statusBarClass(ds==='Closure Pending'?'Closure Pending':ds);
+    const dueCol=t.urgent_reply
+      ? '<span class="due-urgent">🔴 Urgent</span>'
+      : '<div class="tc-due'+(ds==='Overdue'?' ov':'')+'">'+t.due_date+'</div>'+buildCountdown(t.due_date,ds);
+    return '<div class="task-card" onclick="openDetail('+t.id+')">'
+      +'<div class="tc-bar '+bc+'"></div>'
+      +'<div class="tc-inner">'
+        +'<div class="tc-top"><div class="tc-title">'+t.title+'</div><div class="tc-id">#'+String(t.id).padStart(4,'0')+'</div></div>'
+        +'<div class="tc-meta">'
+          +'<span class="badge bs-'+ds.replace(' ','-')+'">'+ds+'</span>'
+          +'<span class="badge bc-'+t.category+'">'+t.category+'</span>'
+          +'<span class="badge bp-'+t.priority+'">'+t.priority+'</span>'
+          +(t.urgent_reply?'<span class="badge bp-Urgent">🔴 Urgent</span>':'')
+          +(t.status==='Closure Pending'?'<span style="font-size:9px;color:var(--cl-tx);font-weight:700;">⊛ Pending</span>':'')
+        +'</div>'
+        +'<div class="tc-row">'
+          +'<div class="tc-person"><span>'+nm+'</span></div>'
+          +'<div style="text-align:right;">'+dueCol+'</div>'
+        +'</div>'
+      +'</div>'
+    +'</div>';
+  }).join('')+'</div>';
+}
+
+function buildTable(list,showTo,multiSelect){
+  const sel=multiSelect?'<th style="width:36px;"><input type="checkbox" id="chk-all-tasks" onchange="toggleAllTasks(this)"></th>':'';
+  const rows=list.map(t=>{
+    const ds=displayStatus(t);
+    const nm=showTo?t.assigned_to_name:t.assigned_by_name;
+    const rk=showTo?t.assigned_to_rank:t.assigned_by_rank;
+    const rc=ds==='Overdue'?'r-ov':t.status==='Closure Pending'?'r-cl':ds==='Reopened'?'r-rp':'';
+    const dueCol=t.urgent_reply
+      ? '<span class="due-urgent">🔴 Urgent</span>'
+      : '<div class="due'+(ds==='Overdue'?' ov':'')+'">'+t.due_date+'</div>'+buildCountdown(t.due_date,ds);
+    const selCell=multiSelect?'<td onclick="event.stopPropagation()"><input type="checkbox" class="task-chk" value="'+t.id+'" onchange="updateAdminSelBar()"></td>':'';
+    return '<tr class="'+rc+'" onclick="openDetail('+t.id+')">'
+      +selCell
+      +'<td><div class="t-id">#'+String(t.id).padStart(4,'0')+'</div></td>'
+      +'<td><div class="t-name">'+t.title+'</div><div class="t-desc">'+(t.description||'')+'</div></td>'
+      +'<td><span class="badge bc-'+t.category+'">'+t.category+'</span></td>'
+      +'<td><span class="badge bp-'+t.priority+'">'+t.priority+'</span>'+(t.urgent_reply?'<br><span class="badge bp-Urgent" style="margin-top:3px;">🔴 Urgent</span>':'')+'</td>'
+      +'<td><div class="a-name">'+nm+'</div></td>'
+      +'<td>'+dueCol+'</td>'
+      +'<td><span class="badge bs-'+ds.replace(' ','-')+'">'+ds+'</span>'+(t.status==='Closure Pending'?'<div class="await-note">⊛ Awaiting</div>':'')+'</td>'
+    +'</tr>';
+  }).join('');
+  return '<div class="table-wrap"><table class="dt"><thead><tr>'+sel+'<th>ID</th><th>Task</th><th>Category</th><th>Priority</th><th>'+(showTo?'Assigned To':'Assigned By')+'</th><th>Due</th><th>Status</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+}
+
+/* ── WORKFLOW STRIP ──────────────────────────────────── */
+function wfStrip(){
+  return '<div class="wf-strip">'
+    +'<div class="wf-step wf-ip"><div class="wf-top-bar"></div><div class="wf-num">1</div><div class="wf-title">In Progress</div><div class="wf-sub">Working</div></div>'
+    +'<div class="wf-arr">→</div>'
+    +'<div class="wf-step wf-cl"><div class="wf-top-bar"></div><div class="wf-num">2</div><div class="wf-title">Compliance</div><div class="wf-sub">Submit report</div></div>'
+    +'<div class="wf-arr">→</div>'
+    +'<div class="wf-step wf-cp"><div class="wf-top-bar"></div><div class="wf-num">3</div><div class="wf-title">Completed</div><div class="wf-sub">Approved</div></div>'
+    +'<div class="wf-arr">⟲</div>'
+    +'<div class="wf-step wf-rp"><div class="wf-top-bar"></div><div class="wf-num" style="font-size:13px;">↺</div><div class="wf-title">Reopened</div><div class="wf-sub">Sent back</div></div>'
+    +'</div>';
+}
+
+/* ── DASHBOARD ──────────────────────────────────────── */
+async function pgDashboard(){
+  const [stats,recent,subs]=await Promise.all([
+    apiFetch('/api/stats/'),
+    apiFetch('/api/tasks/'),
+    apiFetch('/api/officers/subordinates'),
+  ]);
+  await refreshBadges();
+  const ap=stats.closure_pending;
+  document.getElementById('main-content').innerHTML=
+    '<div class="ph"><div><div class="ph-title">Command <em>Dashboard</em></div><div class="ph-sub">'+_user.rank+' '+_user.name+'</div></div>'
+    +(subs.length>0?'<div class="ph-acts"><button class="btn btn-primary" onclick="openAssignModal()">＋ Assign Task</button></div>':'')
+    +'</div>'
+    +(ap>0?'<div class="notice n-vi"><div class="ni">⊛</div><div><strong>'+ap+' task'+(ap>1?'s':'')+' awaiting approval.</strong> <a onclick="goto(\'approval\')">Review now →</a></div></div>':'')
+    +'<div class="stats-row">'
+    +'<div class="sc sc-tt" onclick="filterDash(null)" style="cursor:pointer;"><div class="sc-bar"></div><div class="sc-ico">Σ</div><div class="sc-lbl">Total</div><div class="sc-val">'+stats.total+'</div></div>'
+    +'<div class="sc sc-ip" id="sc-ip" onclick="filterDash(\'In Progress\')" style="cursor:pointer;"><div class="sc-bar"></div><div class="sc-ico">◷</div><div class="sc-lbl">In Progress</div><div class="sc-val">'+stats.in_progress+'</div></div>'
+    +'<div class="sc sc-cp" id="sc-cp" onclick="filterDash(\'Completed\')" style="cursor:pointer;"><div class="sc-bar"></div><div class="sc-ico">✓</div><div class="sc-lbl">Completed</div><div class="sc-val">'+stats.completed+'</div></div>'
+    +'<div class="sc sc-ov" id="sc-ov" onclick="filterDash(\'Overdue\')" style="cursor:pointer;"><div class="sc-bar"></div><div class="sc-ico">!</div><div class="sc-lbl">Overdue</div><div class="sc-val">'+stats.overdue+'</div></div>'
+    +'<div class="sc sc-rp" id="sc-rp" onclick="filterDash(\'Reopened\')" style="cursor:pointer;"><div class="sc-bar"></div><div class="sc-ico">↺</div><div class="sc-lbl">Reopened</div><div class="sc-val">'+stats.reopened+'</div></div>'
+    +'</div>'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">'
+    +'<div style="font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.5px;text-transform:uppercase;" id="dash-list-label">Recent Tasks</div>'
+    +'<button class="btn btn-ghost btn-sm" onclick="goto(\'assigned\')">View All →</button>'
+    +'</div>'
+    +'<div id="dash-task-list">'+buildList(recent.slice(0,10),true)+'</div>';
+  window._dashAllTasks=recent;
+}
+
+let _dashFilter=null;
+function filterDash(status){
+  if(!status){
+    _dashFilter=null;
+    const lbl=document.getElementById('dash-list-label');
+    if(lbl) lbl.textContent='Recent Tasks';
+    const list=document.getElementById('dash-task-list');
+    if(list) list.innerHTML=buildList((window._dashAllTasks||[]).slice(0,10),true);
+    return;
+  }
+  _dashFilter=status;
+  const lbl=document.getElementById('dash-list-label');
+  if(lbl) lbl.textContent=status+' Tasks';
+  const filtered=(window._dashAllTasks||[]).filter(t=>displayStatus(t)===status);
+  const list=document.getElementById('dash-task-list');
+  if(list) list.innerHTML=buildList(filtered,true);
+}
+
+/* ── ASSIGNED BY ME ──────────────────────────────────── */
+let _assignedTasks=[];
+async function pgAssigned(){
+  _assignedTasks=await apiFetch('/api/tasks/assigned-by-me');
+  await refreshBadges();
+  const subs=await apiFetch('/api/officers/subordinates');
+  document.getElementById('main-content').innerHTML=
+    '<div class="ph"><div><div class="ph-title">Assigned <em>by Me</em></div><div class="ph-sub">Tasks you assigned to subordinates</div></div>'
+    +(subs.length>0?'<div class="ph-acts"><button class="btn btn-primary" onclick="openAssignModal()">＋ Assign</button></div>':'')
+    +'</div>'
+    +'<div class="fbar">'
+    +'<input class="fsearch" id="af-q" placeholder="🔍 Search tasks…" oninput="applyAssignedFilter()">'
+    +'<select class="flt" id="af-s" onchange="applyAssignedFilter()"><option value="">All Status</option><option>In Progress</option><option>Completed</option><option>Overdue</option><option>Reopened</option><option>Closure Pending</option></select>'
+    +'<select class="flt" id="af-c" onchange="applyAssignedFilter()"><option value="">All Category</option><option>Crime</option><option>Land Dispute</option><option>Admin</option><option>Meeting</option><option>Other</option></select>'
+    +'<select class="flt" id="af-p" onchange="applyAssignedFilter()"><option value="">All Priority</option><option>High</option><option>Low</option></select>'
+    +'</div>'
+    +'<div id="assigned-list">'+buildList(_assignedTasks,true)+'</div>';
+}
+function applyAssignedFilter(){
+  const q=(document.getElementById('af-q')?.value||'').toLowerCase();
+  const s=document.getElementById('af-s')?.value||'';
+  const c=document.getElementById('af-c')?.value||'';
+  const p=document.getElementById('af-p')?.value||'';
+  const filtered=_assignedTasks.filter(t=>{
+    const ds=displayStatus(t);
+    if(s&&ds!==s) return false;
+    if(c&&t.category!==c) return false;
+    if(p&&t.priority!==p) return false;
+    if(q&&!t.title.toLowerCase().includes(q)&&!t.assigned_to_name.toLowerCase().includes(q)) return false;
+    return true;
+  });
+  document.getElementById('assigned-list').innerHTML=buildList(filtered,true);
+}
+
+/* ── MY TASKS ────────────────────────────────────────── */
+let _myTasks=[], _mySortField='due_date', _mySortAsc=true;
+async function pgMyTasks(){
+  _myTasks=await apiFetch('/api/tasks/my-tasks');
+  await refreshBadges();
+  renderMyTasks();
+}
+function renderMyTasks(){
+  const q=(document.getElementById('mf-q')?.value||'').toLowerCase();
+  const s=document.getElementById('mf-s')?.value||'';
+  const c=document.getElementById('mf-c')?.value||'';
+  const p=document.getElementById('mf-p')?.value||'';
+  let list=_myTasks.filter(t=>{
+    const ds=displayStatus(t);
+    if(s&&ds!==s) return false;
+    if(c&&t.category!==c) return false;
+    if(p&&t.priority!==p) return false;
+    if(q&&!t.title.toLowerCase().includes(q)&&!t.assigned_by_name.toLowerCase().includes(q)) return false;
+    return true;
+  });
+  // Sort
+  list=[...list].sort((a,b)=>{
+    let av=a[_mySortField]||'', bv=b[_mySortField]||'';
+    if(_mySortField==='status'){av=displayStatus(a);bv=displayStatus(b);}
+    const r=av<bv?-1:av>bv?1:0;
+    return _mySortAsc?r:-r;
+  });
+  document.getElementById('main-content').innerHTML=
+    '<div class="ph"><div><div class="ph-title">My <em>Tasks</em></div><div class="ph-sub">Assigned to you by your superior</div></div></div>'
+    +'<div class="fbar">'
+    +'<input class="fsearch" id="mf-q" placeholder="🔍 Search tasks…" oninput="renderMyTasks()" value="'+q+'">'
+    +'<select class="flt" id="mf-s" onchange="renderMyTasks()"><option value="">All Status</option><option'+(s==='In Progress'?' selected':'')+'>In Progress</option><option'+(s==='Completed'?' selected':'')+'>Completed</option><option'+(s==='Overdue'?' selected':'')+'>Overdue</option><option'+(s==='Reopened'?' selected':'')+'>Reopened</option></select>'
+    +'<select class="flt" id="mf-c" onchange="renderMyTasks()"><option value="">All Category</option><option'+(c==='Crime'?' selected':'')+'>Crime</option><option'+(c==='Land Dispute'?' selected':'')+'>Land Dispute</option><option'+(c==='Admin'?' selected':'')+'>Admin</option><option'+(c==='Meeting'?' selected':'')+'>Meeting</option><option'+(c==='Other'?' selected':'')+'>Other</option></select>'
+    +'<select class="flt" id="mf-p" onchange="renderMyTasks()"><option value="">All Priority</option><option'+(p==='High'?' selected':'')+'>High</option><option'+(p==='Low'?' selected':'')+'>Low</option></select>'
+    +'</div>'
+    +'<div id="my-sel-bar" class="admin-sel-bar" style="display:none;margin-bottom:10px;">'
+    +'<span id="my-sel-text">0 tasks selected</span>'
+    +'<button class="btn btn-danger btn-sm" onclick="myTasksBulkDelete()">🗑 Delete Selected</button>'
+    +'</div>'
+    +(list.length===0
+      ?'<div class="empty"><div class="empty-ico">✦</div><div class="empty-title">No tasks found</div><div class="empty-sub">Adjust your filters</div></div>'
+      :buildMyTasksList(list));
+}
+
+function buildMyTasksList(list){
+  if(isMobile()){
+    return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">'
+      +'<input type="checkbox" id="my-chk-all" onchange="toggleAllMyTasks(this)" style="width:15px;height:15px;accent-color:var(--pri);">'
+      +'<label for="my-chk-all" style="font-size:12px;font-weight:700;color:var(--t3);cursor:pointer;">Select All</label>'
+      +'</div>'
+      +'<div class="card-list">'+list.map(t=>{
+        const ds=displayStatus(t);
+        const bc=statusBarClass(ds==='Closure Pending'?'Closure Pending':ds);
+        const dueCol=t.urgent_reply
+          ? '<span class="due-urgent">🔴 Urgent</span>'
+          : '<div class="tc-due'+(ds==='Overdue'?' ov':'')+'">'+t.due_date+'</div>'+buildCountdown(t.due_date,ds);
+        return '<div class="task-card" style="display:flex;align-items:stretch;">'
+          +'<div style="display:flex;align-items:center;padding:0 10px;border-right:1px solid var(--bd);flex-shrink:0;" onclick="event.stopPropagation()">'
+          +'<input type="checkbox" class="my-task-chk" value="'+t.id+'" onchange="updateMySelBar()" style="width:15px;height:15px;accent-color:var(--pri);">'
+          +'</div>'
+          +'<div style="flex:1;cursor:pointer;" onclick="openDetail('+t.id+')">'
+          +'<div class="tc-bar '+bc+'"></div>'
+          +'<div class="tc-inner">'
+            +'<div class="tc-top"><div class="tc-title">'+t.title+'</div><div class="tc-id">#'+String(t.id).padStart(4,'0')+'</div></div>'
+            +'<div class="tc-meta">'
+              +'<span class="badge bs-'+ds.replace(' ','-')+'">'+ds+'</span>'
+              +'<span class="badge bc-'+t.category+'">'+t.category+'</span>'
+              +'<span class="badge bp-'+t.priority+'">'+t.priority+'</span>'
+              +(t.urgent_reply?'<span class="badge bp-Urgent">🔴 Urgent</span>':'')
+            +'</div>'
+            +'<div class="tc-row"><div class="tc-person"><span>'+t.assigned_by_name+'</span></div><div style="text-align:right;">'+dueCol+'</div></div>'
+          +'</div>'
+          +'</div>'
+        +'</div>';
+      }).join('')+'</div>';
+  }
+  // Desktop table with checkboxes
+  const rows=list.map(t=>{
+    const ds=displayStatus(t);
+    const rc=ds==='Overdue'?'r-ov':t.status==='Closure Pending'?'r-cl':ds==='Reopened'?'r-rp':'';
+    const dueCol=t.urgent_reply
+      ? '<span class="due-urgent">🔴 Urgent</span>'
+      : '<div class="due'+(ds==='Overdue'?' ov':'')+'">'+t.due_date+'</div>'+buildCountdown(t.due_date,ds);
+    return '<tr class="'+rc+'">'
+      +'<td onclick="event.stopPropagation()"><input type="checkbox" class="my-task-chk" value="'+t.id+'" onchange="updateMySelBar()"></td>'
+      +'<td onclick="openDetail('+t.id+')"><div class="t-id">#'+String(t.id).padStart(4,'0')+'</div></td>'
+      +'<td onclick="openDetail('+t.id+')"><div class="t-name">'+t.title+'</div><div class="t-desc">'+(t.description||'')+'</div></td>'
+      +'<td onclick="openDetail('+t.id+')"><span class="badge bc-'+t.category+'">'+t.category+'</span></td>'
+      +'<td onclick="openDetail('+t.id+')"><span class="badge bp-'+t.priority+'">'+t.priority+'</span>'+(t.urgent_reply?'<br><span class="badge bp-Urgent" style="margin-top:3px;">🔴 Urgent</span>':'')+'</td>'
+      +'<td onclick="openDetail('+t.id+')"><div class="a-name">'+t.assigned_by_name+'</div></td>'
+      +'<td onclick="openDetail('+t.id+')">'+dueCol+'</td>'
+      +'<td onclick="openDetail('+t.id+')"><span class="badge bs-'+ds.replace(' ','-')+'">'+ds+'</span>'+(t.status==='Closure Pending'?'<div class="await-note">⊛ Awaiting</div>':'')+'</td>'
+    +'</tr>';
+  }).join('');
+  // Sortable column header helper
+  const sh=(f,l)=>{
+    const active=_mySortField===f;
+    const arrow=active?(_mySortAsc?' ↑':' ↓'):'';
+    const style=active?'cursor:pointer;user-select:none;white-space:nowrap;color:var(--pri);background:var(--pri-g1);':'cursor:pointer;user-select:none;white-space:nowrap;';
+    return '<th style="'+style+'" onclick="setMySort(\''+f+'\')">'
+      +l+'<span style="font-size:9px;margin-left:3px;opacity:'+(active?'1':'.3')+'">'+(active?arrow:'⇅')+'</span></th>';
+  };
+  return '<div class="table-wrap"><table class="dt"><thead><tr>'
+    +'<th style="width:36px;"><input type="checkbox" id="my-chk-all" onchange="toggleAllMyTasks(this)"></th>'
+    +'<th>ID</th>'+sh('title','Task')+sh('category','Category')+sh('priority','Priority')+'<th>Assigned By</th>'+sh('due_date','Due')+sh('status','Status')
+    +'</tr></thead><tbody>'+rows+'</tbody></table></div>';
+}
+
+function toggleAllMyTasks(cb){
+  document.querySelectorAll('.my-task-chk').forEach(c=>c.checked=cb.checked);
+  updateMySelBar();
+}
+function updateMySelBar(){
+  const sel=document.querySelectorAll('.my-task-chk:checked').length;
+  const bar=document.getElementById('my-sel-bar');
+  const txt=document.getElementById('my-sel-text');
+  if(bar){
+    if(sel>0){bar.style.display='flex';txt.textContent=sel+' task'+(sel>1?'s':'')+' selected';}
+    else bar.style.display='none';
+  }
+  const allChk=document.getElementById('my-chk-all');
+  if(allChk){
+    const total=document.querySelectorAll('.my-task-chk').length;
+    allChk.checked=sel>0&&sel===total;
+  }
+}
+async function myTasksBulkDelete(){
+  const ids=[...document.querySelectorAll('.my-task-chk:checked')].map(cb=>parseInt(cb.value));
+  if(!ids.length) return;
+  if(!confirm('Delete '+ids.length+' selected task'+(ids.length>1?'s':'')+' permanently?')) return;
+  try{
+    let deleted=0;
+    await Promise.all(ids.map(id=>
+      apiFetch('/api/tasks/'+id,{method:'DELETE'}).then(()=>deleted++)
+    ));
+    showToast('Deleted '+deleted+' task'+(deleted>1?'s':''),'#be123c');
+    _myTasks=await apiFetch('/api/tasks/my-tasks');
+    renderMyTasks();
+  }catch(e){alert('Error: '+e.message);}
+}
+function setMySort(field){
+  if(_mySortField===field) _mySortAsc=!_mySortAsc;
+  else{_mySortField=field;_mySortAsc=true;}
+  renderMyTasks();
+}
+
+/* ── AWAITING APPROVAL ───────────────────────────────── */
+async function pgApproval(){
+  const tasks=await apiFetch('/api/tasks/awaiting-approval');
+  await refreshBadges();
+  document.getElementById('main-content').innerHTML=
+    '<div class="ph"><div><div class="ph-title">Awaiting <em>Approval</em></div><div class="ph-sub">Compliance submitted — pending your review</div></div></div>'
+    +(tasks.length===0
+      ?'<div class="empty"><div class="empty-ico">⊛</div><div class="empty-title">No tasks pending approval</div><div class="empty-sub">Officer compliance reports appear here</div></div>'
+      :'<div class="notice n-vi"><div class="ni">⊛</div><div><strong>'+tasks.length+' task'+(tasks.length>1?'s':'')+' need your review.</strong> Tap a task to read the report and decide.</div></div>'+buildList(tasks,true));
+}
+
+/* ── CALENDAR VIEW ───────────────────────────────────── */
+let _calYear=new Date().getFullYear(), _calMonth=new Date().getMonth();
+async function pgCalendar(){
+  const tasks=await apiFetch('/api/tasks/calendar');
+  window._calTasks=tasks;
+  renderCalendar();
+}
+function renderCalendar(){
+  const tasks=window._calTasks||[];
+  const today=new Date();
+  const y=_calYear, m=_calMonth;
+  const firstDay=new Date(y,m,1).getDay();
+  const daysInMonth=new Date(y,m+1,0).getDate();
+  const monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  // Separate by-me vs to-me
+  const byMeMap={}, toMeMap={};
+  tasks.forEach(t=>{
+    const k=t.due_date;
+    if(t.assigned_by===_user.id){
+      if(!byMeMap[k]) byMeMap[k]=[];
+      byMeMap[k].push(t);
+    } else {
+      if(!toMeMap[k]) toMeMap[k]=[];
+      toMeMap[k].push(t);
+    }
+  });
+
+  let cells='';
+  for(let i=0;i<firstDay;i++) cells+='<div></div>';
+  for(let d=1;d<=daysInMonth;d++){
+    const dateStr=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    const byMe=byMeMap[dateStr]||[];
+    const toMe=toMeMap[dateStr]||[];
+    const total=byMe.length+toMe.length;
+    const isToday=today.getFullYear()===y&&today.getMonth()===m&&today.getDate()===d;
+    const hasOverdue=[...byMe,...toMe].some(t=>displayStatus(t)==='Overdue');
+    let dots='';
+    if(byMe.length) dots+='<div class="cal-dot by-me'+(hasOverdue?' ov':'')+'">'+byMe.length+'</div>';
+    if(toMe.length) dots+='<div class="cal-dot to-me'+(hasOverdue?' ov':'')+'">'+toMe.length+'</div>';
+    cells+='<div class="cal-day'+(isToday?' today':'')+(total?' has-tasks':'')+'" onclick="showCalDayTasks(\''+dateStr+'\')">'
+      +'<div class="cal-dn">'+d+'</div>'
+      +(total?'<div class="cal-dots-row">'+dots+'</div>':'')
+      +'</div>';
+  }
+
+  const legend='<div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;flex-wrap:wrap;">'
+    +'<div style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--t2);">'
+    +'<div class="cal-dot by-me" style="width:12px;height:12px;"></div>Assigned by me</div>'
+    +'<div style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--t2);">'
+    +'<div class="cal-dot to-me" style="width:12px;height:12px;"></div>Assigned to me</div>'
+    +'<div style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--t2);">'
+    +'<div class="cal-dot ov" style="width:12px;height:12px;"></div>Overdue</div>'
+    +'</div>';
+
+  document.getElementById('main-content').innerHTML=
+    '<div class="ph"><div><div class="ph-title">Task <em>Calendar</em></div><div class="ph-sub">Monthly overview of task due dates</div></div></div>'
+    +'<div style="background:var(--surface);border:1.5px solid var(--bd);border-radius:var(--r);padding:16px;box-shadow:var(--sh-sm);">'
+    +legend
+    +'<div class="cal-nav">'
+    +'<button class="cal-nav-btn" onclick="calNav(-1)">← Prev</button>'
+    +'<div class="cal-nav-title">'+monthNames[m]+' '+y+'</div>'
+    +'<button class="cal-nav-btn" onclick="calNav(1)">Next →</button>'
+    +'</div>'
+    +'<div class="cal-grid">'+['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d=>'<div class="cal-hdr">'+d+'</div>').join('')+cells+'</div>'
+    +'</div>'
+    +'<div id="cal-day-tasks" style="margin-top:14px;"></div>';
+}
+function calNav(dir){
+  _calMonth+=dir;
+  if(_calMonth>11){_calMonth=0;_calYear++;}
+  if(_calMonth<0){_calMonth=11;_calYear--;}
+  renderCalendar();
+}
+function showCalDayTasks(dateStr){
+  const all=(window._calTasks||[]).filter(t=>t.due_date===dateStr);
+  const el=document.getElementById('cal-day-tasks');
+  if(!el) return;
+  if(!all.length){
+    el.innerHTML='<div style="color:var(--t4);font-size:13px;text-align:center;padding:12px;">No tasks due on '+fmtD(dateStr)+'</div>';
+    return;
+  }
+  const byMe=all.filter(t=>t.assigned_by===_user.id);
+  const toMe=all.filter(t=>t.assigned_to===_user.id);
+  let html='<div style="font-size:13px;font-weight:700;color:var(--t2);margin-bottom:12px;">📅 '+fmtD(dateStr)+' — '+all.length+' task'+(all.length>1?'s':'')+'</div>';
+  if(byMe.length){
+    html+='<div style="font-size:11px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;">'
+      +'<span class="cal-dot by-me" style="display:inline-flex;width:10px;height:10px;margin-right:4px;"></span>'
+      +'Assigned by me ('+byMe.length+')</div>'
+      +buildCards(byMe,true)+'<div style="margin-bottom:14px;"></div>';
+  }
+  if(toMe.length){
+    html+='<div style="font-size:11px;font-weight:700;color:var(--cp-tx);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;">'
+      +'<span class="cal-dot to-me" style="display:inline-flex;width:10px;height:10px;margin-right:4px;"></span>'
+      +'Assigned to me ('+toMe.length+')</div>'
+      +buildCards(toMe,false);
+  }
+  el.innerHTML=html;
+}
+
+/* ── HIERARCHY ───────────────────────────────────────── */
+// ── Hierarchy state ─────────────────────────────────────
+let _hierOfficers=[], _isAdminHier=false;
+
+async function pgHierarchy(){
+  _isAdminHier=false;
+  _hierOfficers=await apiFetch('/api/officers/');
+  renderHierarchyTree();
+}
+
+async function pgAdminHierarchy(){
+  _isAdminHier=true;
+  _hierOfficers=await apiFetch('/api/officers/');
+  renderHierarchyTree();
+}
+
+function renderHierarchyTree(){
+  const officers=_hierOfficers;
+  const isAdmin=_isAdminHier;
+  const sp=officers.find(o=>o.level===0);
+  const addlSPs=officers.filter(o=>o.level===1);
+  const divDsps=officers.filter(o=>o.level===2&&o.rank==='DSP'&&(o.id==='DSP_RCY'||o.id==='DSP_MDL'));
+  const dspAR=officers.filter(o=>o.level===2&&o.rank==='DSP'&&o.id!=='DSP_RCY'&&o.id!=='DSP_MDL');
+  const wings=officers.filter(o=>o.level===2&&o.rank!=='DSP');
+
+  function editBtn(o){
+    if(!isAdmin) return '';
+    return '<div class="ht-acts">'
+      +'<button class="ht-edit" onclick="htEditInline(event,\''+o.id+'\')">Edit</button>'
+      +'<button class="ht-del" onclick="htDeleteOfficer(\''+o.id+'\',\''+o.name.replace(/'/g,"\\'")+'\')">\u2715</button>'
+      +'</div>';
+  }
+  function addBtn(parentId,label){
+    if(!isAdmin) return '';
+    return '<button class="ht-add" onclick="htAddUnder(\''+parentId+'\')">+ Add '+label+'</button>';
+  }
+
+  // SP block
+  var spHtml='';
+  if(sp){
+    spHtml='<div class="ht-sp">'
+      +'<div style="display:flex;align-items:center;">'
+      +'<div class="ht-sp-avatar">'+sp.name[0]+'</div>'
+      +'<div><div class="ht-sp-name">'+sp.name+'</div>'
+      +'<div class="ht-sp-sub">'+sp.rank+' \u00b7 ASR District</div></div>'
+      +'</div>'+editBtn(sp)+'</div>'
+      +'<div class="ht-connector"></div>';
+  }
+
+  // Addl.SP block
+  var addlSpHtml=addlSPs.map(function(o){
+    return '<div class="ht-addlsp">'
+      +'<div><div class="ht-addlsp-label">Reports to SP</div>'
+      +'<div class="ht-addlsp-name">'+o.name+'</div>'
+      +'<div style="font-size:10px;color:#6d28d9;">'+o.rank+' \u00b7 '+o.id+'</div></div>'
+      +editBtn(o)+'</div>';
+  }).join('');
+
+  // DSP columns
+  var dspCols=divDsps.map(function(dsp){
+    var cis=officers.filter(function(o){return o.report_to===dsp.id;});
+    var ciHtml=cis.map(function(ci){
+      var sis=officers.filter(function(o){return o.report_to===ci.id;});
+      var siHtml='';
+      if(sis.length){
+        siHtml='<div class="ht-si-list">'
+          +sis.map(function(si){
+            return '<div class="ht-si-row">'
+              +'<div><div class="ht-si-name">'+si.name+'</div>'
+              +'<div class="ht-si-ps">'+si.rank+' \u00b7 '+si.id+'</div></div>'
+              +editBtn(si)+'</div>';
+          }).join('')
+          +addBtn(ci.id,'SI')
+          +'</div>';
+      } else {
+        siHtml='<div style="padding:6px 10px;font-size:11px;color:var(--t4);">No SIs assigned</div>'
+          +addBtn(ci.id,'SI');
+      }
+      return '<div class="ht-ci-card">'
+        +'<div class="ht-ci-head">'
+        +'<div><div class="ht-ci-name">'+ci.name+'</div>'
+        +'<div class="ht-ci-meta">'+ci.rank+' \u00b7 '+ci.id+' \u00b7 '+sis.length+' SI'+(sis.length!==1?'s':'')+'</div></div>'
+        +editBtn(ci)+'</div>'
+        +siHtml+'</div>';
+    }).join('');
+    return '<div class="ht-dsp-col">'
+      +'<div class="ht-dsp-card">'
+      +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">'
+      +'<div><div class="ht-dsp-name">'+dsp.name+'</div>'
+      +'<div class="ht-dsp-sub">'+dsp.rank+' \u00b7 '+dsp.id+' \u00b7 '+cis.length+' CI'+(cis.length!==1?'s':'')+'</div></div>'
+      +editBtn(dsp)+'</div>'
+      +'<div class="ht-sec-hdr">Circle Inspectors ('+cis.length+')</div>'
+      +'<div class="ht-ci-list">'+ciHtml+'</div>'
+      +addBtn(dsp.id,'CI/Inspector')
+      +'</div></div>';
+  }).join('');
+
+  // Wings block
+  var wingsHtml='';
+  if(wings.length){
+    wingsHtml='<div class="ht-wings">'
+      +'<div class="ht-sec-hdr">Other Wing Officers ('+wings.length+')</div>'
+      +'<div class="ht-wing-grid">'
+      +wings.map(function(o){
+        return '<div class="ht-wing-item">'
+          +'<div><div class="ht-wing-name">'+o.name+'</div>'
+          +'<div class="ht-wing-rank">'+o.rank+' \u00b7 '+o.id+'</div></div>'
+          +editBtn(o)+'</div>';
+      }).join('')
+      +'</div>'
+      +addBtn(addlSPs[0]?addlSPs[0].id:(sp?sp.id:''),'Wing Officer')
+      +'</div>';
+  }
+
+  var phActs=isAdmin?'<div class="ph-acts"><button class="btn btn-primary" onclick="htAddUnder(\'\')">+ Add Officer</button></div>':'';
+
+  // DSP AR and other non-division DSPs
+  var dspArHtml=dspAR.map(function(dsp){
+    var subs=officers.filter(function(o){return o.report_to===dsp.id;});
+    var subHtml=subs.map(function(s){
+      return '<div class="ht-si-row">'
+        +'<div><div class="ht-si-name">'+s.name+'</div>'
+        +'<div class="ht-si-ps">'+s.rank+' \u00b7 '+s.id+'</div></div>'
+        +editBtn(s)+'</div>';
+    }).join('');
+    return '<div class="ht-dsp-card">'
+      +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">'
+      +'<div><div class="ht-dsp-name">'+dsp.name+'</div>'
+      +'<div class="ht-dsp-sub">'+dsp.rank+' \u00b7 '+dsp.id+' \u00b7 '+subs.length+' officer'+(subs.length!==1?'s':'')+'</div></div>'
+      +editBtn(dsp)+'</div>'
+      +(subs.length?'<div class="ht-si-list">'+subHtml+'</div>':'')
+      +addBtn(dsp.id,'Officer')
+      +'</div>';
+  }).join('');
+
+  document.getElementById('main-content').innerHTML=
+    '<div class="ph"><div><div class="ph-title">Officer <em>Hierarchy</em></div>'
+    +'<div class="ph-sub">ASR District command structure</div></div>'+phActs+'</div>'
+    +'<div class="htree">'
+    +spHtml
+    +addlSpHtml
+    +(isAdmin?addBtn(sp?sp.id:'','Addl.SP'):'')
+    +(addlSPs.length?'<div class="ht-connector"></div>':'')
+    +'<div class="ht-sec-hdr" style="margin-top:8px;">Field Divisions</div>'
+    +'<div class="ht-dsp-row">'+dspCols+'</div>'
+    +(dspArHtml?'<div class="ht-sec-hdr" style="margin-top:20px;">Armed Reserve &amp; Other</div><div class="ht-dsp-row">'+dspArHtml+'</div>':'')
+    +(isAdmin?'<div style="margin-top:10px;">'+addBtn(addlSPs[0]?addlSPs[0].id:(sp?sp.id:''),'DSP')+'</div>':'')
+    +wingsHtml
+    +'</div>';
+}
+
+// ── Edit/Add Officer via Modal ───────────────────────────
+let _htEditOriginalId=null;
+
+async function htEditInline(evt, officerId){
+  evt.stopPropagation();
+  _htEditOriginalId=officerId;
+  const o=_hierOfficers.find(x=>x.id===officerId);
+  if(!o) return;
+
+  document.getElementById('ht-modal-title').textContent='Edit Officer';
+  document.getElementById('ht-modal-save-btn').textContent='💾 Save Changes';
+  document.getElementById('ht-modal-warning').style.display='none';
+  document.getElementById('ht-f-id').value=o.id;
+  document.getElementById('ht-f-name').value=o.name;
+  document.getElementById('ht-f-rank').value=o.rank;
+  document.getElementById('ht-f-level').value=o.level;
+
+  // Populate superior dropdown
+  const sel=document.getElementById('ht-f-rto');
+  sel.innerHTML='<option value="">— No superior —</option>'
+    +_hierOfficers.filter(s=>s.id!==o.id&&s.id!=='ADMIN')
+      .map(s=>'<option value="'+s.id+'"'+(s.id===o.report_to?' selected':'')+'>'+s.rank+' '+s.name+'</option>').join('');
+
+  // Check pending tasks warning
+  try{
+    const res=await apiFetch('/api/admin/officer-pending/'+officerId);
+    if(res.pending_count>0){
+      document.getElementById('ht-modal-warning-text').textContent='This officer has '+res.pending_count+' pending task'+(res.pending_count>1?'s':'')+'. ID changes will auto-remap all tasks.';
+      document.getElementById('ht-modal-warning').style.display='flex';
+    }
+  }catch{}
+
+  openModal('modal-ht-edit');
+}
+
+async function htModalSave(){
+  const newId=document.getElementById('ht-f-id').value.trim().toUpperCase();
+  const name=document.getElementById('ht-f-name').value.trim();
+  const rank=document.getElementById('ht-f-rank').value.trim();
+  const rto=document.getElementById('ht-f-rto').value;
+  const levelVal=document.getElementById('ht-f-level').value;
+  const level=levelVal!==''?parseInt(levelVal):1;
+  if(!newId||!name||!rank){alert('ID, Name and Rank are required.');return;}
+
+  if(_htEditOriginalId){
+    // Edit existing
+    try{
+      const updates=_hierOfficers.filter(o=>o.id!=='ADMIN').map(o=>{
+        if(o.id===_htEditOriginalId) return {original_id:_htEditOriginalId,id:newId,name,rank,level,report_to:rto||null};
+        return {original_id:o.id,id:o.id,name:o.name,rank:o.rank,level:o.level,report_to:o.report_to};
+      });
+      await apiFetch('/api/officers/bulk-update',{method:'POST',body:JSON.stringify(updates)});
+      closeModal('modal-ht-edit');showToast('Officer updated ✓');
+      _hierOfficers=await apiFetch('/api/officers/');renderHierarchyTree();
+    }catch(e){alert('Error: '+e.message);}
+  } else {
+    // Add new
+    if(!rto){alert('Please select a superior officer.');return;}
+    try{
+      await apiFetch('/api/officers/add',{method:'POST',body:JSON.stringify({id:newId,name,rank,level,report_to:rto})});
+      closeModal('modal-ht-edit');showToast(name+' added ✓');
+      _hierOfficers=await apiFetch('/api/officers/');renderHierarchyTree();
+    }catch(e){alert('Error: '+e.message);}
+  }
+}
+
+async function htDeleteOfficer(id,name){
+  if(!confirm('Delete '+name+'? Their tasks will be reassigned to their superior.')) return;
+  try{
+    await apiFetch('/api/officers/'+id,{method:'DELETE'});
+    showToast(name+' removed','#be123c');
+    _hierOfficers=await apiFetch('/api/officers/');renderHierarchyTree();
+  }catch(e){alert('Error: '+e.message);}
+}
+
+// ── Quick Add Officer via Modal ──────────────────────────
+function htAddUnder(parentId){
+  _htEditOriginalId=null;
+  const parent=_hierOfficers.find(o=>o.id===parentId);
+  const guessLevel=parent?(parent.level+1):1;
+
+  document.getElementById('ht-modal-title').textContent='Add New Officer';
+  document.getElementById('ht-modal-save-btn').textContent='+ Add Officer';
+  document.getElementById('ht-modal-warning').style.display='none';
+  document.getElementById('ht-f-id').value='';
+  document.getElementById('ht-f-name').value='';
+  document.getElementById('ht-f-rank').value='';
+  document.getElementById('ht-f-level').value=guessLevel;
+
+  const sel=document.getElementById('ht-f-rto');
+  sel.innerHTML='<option value="">— Select Superior —</option>'
+    +_hierOfficers.filter(o=>o.id!=='ADMIN')
+      .map(o=>'<option value="'+o.id+'"'+(o.id===parentId?' selected':'')+'>'+o.rank+' '+o.name+'</option>').join('');
+
+  openModal('modal-ht-edit');
+}
+
+
+/* ── TASK DETAIL ──────────────────────────────────────── */
+async function openDetail(id){
+  _activeTaskId=id;
+  document.getElementById('detail-body').innerHTML='<div class="spin-wrap"><div class="spinner"></div>Loading…</div>';
+  document.getElementById('detail-foot').innerHTML='';
+  document.getElementById('detail-title').textContent='Task #'+String(id).padStart(4,'0');
+  openModal('modal-detail');
+  try{
+    const t=await apiFetch('/api/tasks/'+id);
+    const ds=displayStatus(t);
+    const tmap={
+      assigned:{cls:'assigned',icon:'✦',label:'Task Assigned'},
+      submitted:{cls:'submitted',icon:'⊛',label:'Compliance Submitted'},
+      approved:{cls:'approved',icon:'✔',label:'Approved — Completed'},
+      reopened:{cls:'reopened',icon:'↺',label:'Reopened with Remarks'},
+      reassigned:{cls:'reassigned',icon:'↔',label:'Reassigned'},
+      extended:{cls:'extended',icon:'📅',label:'Due Date Extended'},
+      deleted:{cls:'deleted',icon:'✕',label:'Deleted'},
+    };
+    const tl=t.activity.map(a=>{
+      const m=tmap[a.action_type]||{cls:'assigned',icon:'·',label:a.action_type};
+      const remCls=a.action_type==='reopened'?'rej':a.action_type==='extended'?'ext':'normal';
+      return '<div class="tl-item"><div class="tl-dot '+m.cls+'">'+m.icon+'</div>'
+        +'<div class="tl-body"><div class="tl-actor">'+a.actor_rank+' '+a.actor_name+'</div>'
+        +'<div class="tl-action">'+m.label+'</div>'
+        +'<div class="tl-date">'+fmtDT(a.created_at)+'</div>'
+        +(a.remark?'<div class="tl-rem '+remCls+'">'+a.remark+'</div>':'')
+        +'</div></div>';
+    }).join('');
+
+    let actionHtml='';
+    const isAssignedTo=t.assigned_to===_user.id;
+    const isAssignedBy=t.assigned_by===_user.id;
+
+    if(t.status==='Closure Pending'&&isAssignedBy){
+      const lastSub=t.activity.filter(a=>a.action_type==='submitted').pop();
+      actionHtml='<div class="ap-box">'
+        +'<div class="ap-title">Compliance Report Submitted</div>'
+        +'<div class="ap-sub">'+(lastSub?lastSub.remark:'No remarks provided.')+'</div>'
+        +'<div class="ap-acts">'
+        +'<button class="btn btn-success" onclick="doApprove()">✔ Approve & Complete</button>'
+        +'<button class="btn btn-danger" onclick="closeModal(\'modal-detail\');openReopenModal()">↺ Reopen</button>'
+        +'</div></div>';
+    }
+    if((t.status==='In Progress'||t.status==='Reopened')&&isAssignedTo){
+      actionHtml='<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">'
+        +'<button class="btn btn-primary" onclick="openSubmitModal()">⊛ Submit Compliance</button>'
+        +'<button class="btn btn-warn" onclick="openExtendModal(\''+t.due_date+'\')">📅 Extend Deadline</button>'
+        +'</div>';
+    }
+
+    // Reassign button (for assigner on active tasks)
+    const canReassign=isAssignedBy&&t.status!=='Completed';
+    const canDelete=isAssignedBy||_user.id==='ADMIN';
+
+    window._taskDetailCache=t;
+    document.getElementById('detail-title').textContent='#'+String(t.id).padStart(4,'0')+' — '+t.title;
+    document.getElementById('detail-body').innerHTML=
+      '<div class="det-meta">'
+      +'<div class="dm-item"><div class="dm-k">Status</div><div class="dm-v"><span class="badge bs-'+ds.replace(' ','-')+'">'+ds+'</span></div></div>'
+      +'<div class="dm-item"><div class="dm-k">Priority</div><div class="dm-v"><span class="badge bp-'+t.priority+'">'+t.priority+'</span></div></div>'
+      +'<div class="dm-item"><div class="dm-k">Category</div><div class="dm-v"><span class="badge bc-'+t.category+'">'+t.category+'</span></div></div>'
+      +'<div class="dm-item"><div class="dm-k">Due Date</div><div class="dm-v" style="font-family:\'JetBrains Mono\',monospace;font-size:12px;">'+t.due_date+' '+buildCountdown(t.due_date,ds)+'</div></div>'
+      +(t.urgent_reply?'<div class="dm-item"><div class="dm-k">Urgent Reply</div><div class="dm-v"><span class="badge bp-Urgent">🔴 Urgent — Reply Today</span></div></div>':'')
+      +'<div class="dm-item dm-full"><div class="dm-k">Assigned</div><div class="dm-v">'+t.assigned_by_rank+' '+t.assigned_by_name+' → '+t.assigned_to_rank+' '+t.assigned_to_name+'</div></div>'
+      +'</div>'
+      +'<div><div class="sec-title">Description</div><div class="txt-box '+(t.description?'':'empty')+'">'+(t.description||'No description.')+'</div></div>'
+      +actionHtml
+      +(canReassign?'<div style="display:flex;gap:8px;margin-top:8px;"><button class="btn btn-ghost btn-sm" onclick="openReassignModal()">↔ Reassign</button><button class="btn btn-ghost btn-sm" onclick="openEditTaskModal()">✏ Edit</button></div>':'')
+      +(canDelete?'<div class="del-zone"><span>⚠ Delete this task permanently</span><button class="btn btn-danger btn-sm" onclick="confirmDeleteTask()">🗑 Delete</button></div>':'')
+      +'<div><div class="sec-title" style="margin-top:14px;">Activity Trail</div><div class="timeline">'+(tl||'<div style="color:var(--t4);font-size:13px;padding:6px 0;">No activity recorded.</div>')+'</div></div>';
+
+    // ── Load and render subtasks ─────────────────────────
+    const subs=await apiFetch('/api/tasks/'+id+'/subtasks').catch(()=>[]);
+    const doneCount=subs.filter(s=>s.status==='Done').length;
+    const pct=subs.length?Math.round(doneCount/subs.length*100):0;
+    const subHtml=subs.map(s=>
+      '<div class="subtask-item'+(s.status==='Done'?' done':'')+'" id="sub-'+s.id+'">'
+        +'<input class="subtask-check" type="checkbox"'+(s.status==='Done'?' checked':'')
+          +' onchange="toggleSubTask('+id+','+s.id+')">'
+        +'<span class="subtask-title">'+s.title+'</span>'
+        +(s.assignee_name?'<span class="subtask-assignee">'+s.assignee_name+'</span>':'')
+        +(isAssignedBy?'<button class="subtask-del" onclick="deleteSubTask('+id+','+s.id+')" title="Remove">×</button>':'')
+      +'</div>'
+    ).join('');
+    const subtaskSection=
+      '<div style="margin-top:14px;">'
+      +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">'
+      +'<div class="sec-title">Sub-Tasks'+(subs.length?' ('+doneCount+'/'+subs.length+')':'')+'</div>'
+      +(subs.length?'<span style="font-size:11px;font-weight:700;color:'+( pct===100?'var(--cp-tx)':'var(--t3)')+'">'+pct+'% done</span>':'')
+      +'</div>'
+      +(subs.length?'<div class="subtask-progress"><div class="subtask-progress-fill" style="width:'+pct+'%"></div></div>':'')
+      +'<div class="subtask-list" id="subtask-list-'+id+'">'+( subs.length?subHtml:'<div style="font-size:12px;color:var(--t4);padding:4px 0;">No sub-tasks yet.</div>')+'</div>'
+      +(isAssignedBy
+        ?'<div class="subtask-add-row">'
+          +'<input type="text" id="subtask-input-'+id+'" placeholder="Add a sub-task… (press Enter)" onkeydown="if(event.key===\'Enter\')addSubTask('+id+')">'
+          +'<button class="btn btn-ghost btn-sm" onclick="addSubTask('+id+')">+ Add</button>'
+          +'</div>'
+        :'')
+      +'</div>';
+
+    // Append subtask section to detail body
+    document.getElementById('detail-body').innerHTML+=subtaskSection;
+    document.getElementById('detail-foot').innerHTML='<button class="btn btn-ghost" onclick="closeModal(\'modal-detail\')">Close</button>';
+  }catch(e){
+    document.getElementById('detail-body').innerHTML='<div style="color:var(--ov-tx);padding:20px;font-weight:700;">Error: '+e.message+'</div>';
+  }
+}
+
+function openEditTaskModal(){
+  const cache=window._taskDetailCache;
+  if(!cache) return;
+  document.getElementById('et-title').value=cache.title||'';
+  document.getElementById('et-cat').value=cache.category||'Crime';
+  document.getElementById('et-priority').value=cache.priority||'High';
+  document.getElementById('et-desc').value=cache.description||'';
+  openModal('modal-edit-task');
+}
+async function doEditTask(){
+  const title=document.getElementById('et-title').value.trim();
+  if(!title){alert('Title is required.');return;}
+  try{
+    await apiFetch('/api/tasks/'+_activeTaskId+'/edit',{
+      method:'PATCH',
+      body:JSON.stringify({
+        title,
+        category:document.getElementById('et-cat').value,
+        priority:document.getElementById('et-priority').value,
+        description:document.getElementById('et-desc').value.trim()||null,
+      })
+    });
+    closeModal('modal-edit-task');
+    showToast('Task updated ✓');
+    // Reload detail
+    const t=await apiFetch('/api/tasks/'+_activeTaskId);
+    window._taskDetailCache=t;
+    // refresh title in detail modal
+    window._taskDetailCache=t;
+    document.getElementById('detail-title').textContent='#'+String(t.id).padStart(4,'0')+' — '+t.title;
+    await renderPage();
+  }catch(e){alert('Error: '+e.message);}
+}
+async function confirmDeleteTask(){
+  if(!confirm('Delete this task permanently? This cannot be undone.')) return;
+  try{
+    await apiFetch('/api/tasks/'+_activeTaskId,{method:'DELETE'});
+    closeModal('modal-detail');
+    showToast('Task deleted.','#be123c');
+    await renderPage();
+  }catch(e){alert('Error: '+e.message);}
+}
+
+/* ── ASSIGN TASK ──────────────────────────────────────── */
+let _allSubordinates=[];
+async function openAssignModal(){
+  ['f-title','f-desc'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('f-cat').value='Crime';
+  document.getElementById('f-priority').value='High';
+  const furg=document.getElementById('f-urgent'); if(furg) furg.checked=false;
+  const os=document.getElementById('officer-search'); if(os) os.value='';
+  const ca=document.getElementById('chk-all'); if(ca) ca.checked=false;
+  const oc=document.getElementById('officer-checkboxes'); if(oc) oc.innerHTML='<div style="padding:10px;color:var(--t3);">Loading…</div>';
+  const op2=document.getElementById('officer-panel'); if(op2) op2.classList.remove('open');
+  const sc=document.getElementById('sel-count'); if(sc) sc.textContent='';
+  _selectedOfficerIds=new Set();
+  _assignSubTasks=[];
+  const stl=document.getElementById('f-subtask-list'); if(stl) stl.innerHTML='';
+  const sti=document.getElementById('f-subtask-input'); if(sti) sti.value='';
+  const tl=document.getElementById('officer-trigger-label'); if(tl) tl.textContent='— Select officers —';
+  // officer panel always visible
+  const picker=document.getElementById('f-target-date');
+  if(picker){picker.disabled=false;picker.style.opacity='1';picker.min=addDays(1);picker.value=addDays(7);}
+  const dh=document.getElementById('due-hint'); if(dh){dh.textContent='📅 Due in 7 days';dh.style.color='';}
+  openModal('modal-assign');
+  _allSubordinates=await apiFetch('/api/officers/subordinates');
+  renderOfficerCheckboxes(_allSubordinates);
+}
+
+// Track selected officer IDs persistently across search
+let _selectedOfficerIds=new Set();
+
+function renderOfficerCheckboxes(list){
+  const box=document.getElementById('officer-checkboxes');
+  if(!list.length){box.innerHTML='<div style="padding:10px;color:var(--t3);font-size:13px;">No officers found.</div>';return;}
+  const lvN={1:'Addl. SP',2:'DSP Level',3:'Inspector Level',4:'Sub-Inspector Level'};
+  const byLv={};
+  list.forEach(o=>{(byLv[o.level]=byLv[o.level]||[]).push(o);});
+  box.innerHTML=Object.keys(byLv).sort().map(lv=>
+    '<div style="padding:4px 12px;font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:1.5px;color:var(--t4);text-transform:uppercase;background:var(--surf2);">'+(lvN[lv]||'Level '+lv)+'</div>'
+    +byLv[lv].map(o=>'<div class="officer-item"><input type="checkbox" id="chk-'+o.id+'" value="'+o.id+'"'
+      +(_selectedOfficerIds.has(o.id)?' checked':'')+' onchange="onOfficerCheck(this)"><label for="chk-'+o.id+'"><span class="o-rank">'+o.rank+'</span> '+o.name+'</label></div>').join('')
+  ).join('');
+  updateSelCount();
+}
+
+function onOfficerCheck(cb){
+  if(cb.checked) _selectedOfficerIds.add(cb.value);
+  else _selectedOfficerIds.delete(cb.value);
+  updateSelCount();
+}
+
+function filterOfficerList(){
+  // Save checked state of currently visible checkboxes into the Set
+  document.querySelectorAll('#officer-checkboxes input[type=checkbox]').forEach(cb=>{
+    if(cb.checked) _selectedOfficerIds.add(cb.value);
+    // Do NOT delete unchecked — they may have been selected from a previous search
+  });
+  const q=document.getElementById('officer-search').value.toLowerCase().trim();
+  const filtered=q
+    ? _allSubordinates.filter(o=>o.name.toLowerCase().includes(q)||o.rank.toLowerCase().includes(q)||o.id.toLowerCase().includes(q))
+    : _allSubordinates;
+  renderOfficerCheckboxes(filtered);
+}
+
+async function selectSHOs(){
+  try{
+    // Fetch actual SHO IDs from police_stations DB
+    const stations=await apiFetch('/api/stations/');
+    const shoIds=new Set(stations.map(s=>s.sho_id).filter(Boolean));
+    if(!shoIds.size){showToast('No SHOs mapped yet — set them in Admin → Police Stations','#b87316');return;}
+    // Select only officers who are mapped as SHOs
+    _allSubordinates.forEach(o=>{
+      if(shoIds.has(o.id)) _selectedOfficerIds.add(o.id);
+    });
+    const count=[..._selectedOfficerIds].filter(id=>shoIds.has(id)).length;
+    renderOfficerCheckboxes(_allSubordinates);
+    showToast(count+' SHOs selected ⭐');
+  }catch(e){
+    showToast('Could not load SHO list','#be123c');
+  }
+}
+function toggleOfficerDropdown(){
+  const p=document.getElementById('officer-panel');
+  const trigger=document.getElementById('officer-trigger');
+  const isOpen=p.classList.contains('open');
+  if(isOpen){
+    p.classList.remove('open');
+    return;
+  }
+  // Position the panel under the trigger button
+  const rect=trigger.getBoundingClientRect();
+  p.style.top=(rect.bottom+4)+'px';
+  p.style.left=rect.left+'px';
+  p.style.width=rect.width+'px';
+  p.classList.add('open');
+  setTimeout(()=>document.getElementById('officer-search').focus(),50);
+}
+function toggleSelectAll(){
+  const checked=document.getElementById('chk-all').checked;
+  if(checked){
+    // Select all officers in the full list (not just visible)
+    _allSubordinates.forEach(o=>_selectedOfficerIds.add(o.id));
+  } else {
+    // Clear ALL selections including officers from previous searches
+    _selectedOfficerIds.clear();
+  }
+  // Update visible checkboxes to reflect state
+  document.querySelectorAll('#officer-checkboxes input[type=checkbox]').forEach(cb=>{
+    cb.checked=checked;
+  });
+  updateSelCount();
+}
+function updateSelCount(){
+  const sel=_selectedOfficerIds.size;
+  const total=_allSubordinates.length;
+  const allChk=document.getElementById('chk-all');
+  if(allChk) allChk.checked=(sel>0&&sel===total);
+  const cnt=document.getElementById('sel-count');
+  if(cnt) cnt.textContent=sel>0?'('+sel+' selected)':'';
+  const lbl=document.getElementById('officer-trigger-label');
+  if(lbl){
+    if(sel===0) lbl.textContent='— Select officers —';
+    else if(sel===1){
+      const oid=[..._selectedOfficerIds][0];
+      const o=_allSubordinates.find(x=>x.id===oid);
+      lbl.textContent=o?o.name:'1 officer selected';
+    } else lbl.textContent=sel+' officers selected';
+  }
+}
+function getSelectedOfficers(){
+  return [..._selectedOfficerIds];
+}
+
+function onUrgentChange(){
+  const urgent=document.getElementById('f-urgent').checked;
+  const picker=document.getElementById('f-target-date');
+  const hint=document.getElementById('due-hint');
+  if(urgent){
+    picker.value=addDays(0);picker.disabled=true;picker.style.opacity='0.4';
+    if(hint){hint.innerHTML='🔴 <strong>Due today</strong> — urgent reply required';hint.style.color='#9a3412';}
+  } else {
+    picker.disabled=false;picker.style.opacity='1';picker.value=addDays(7);
+    if(hint){hint.textContent='';hint.style.color='';}
+    updateDueHint();
+  }
+}
+function updateDueHint(){
+  const picker=document.getElementById('f-target-date');
+  if(!picker||document.getElementById('f-urgent')?.checked) return;
+  picker.min=addDays(1);
+  if(picker.value){
+    const diff=Math.round((new Date(picker.value)-new Date(addDays(0)))/86400000);
+    const hint=document.getElementById('due-hint');
+    if(hint){
+      if(diff<0) hint.textContent='⚠ Please select a future date.';
+      else if(diff===0) hint.textContent='📅 Due today';
+      else if(diff===1) hint.textContent='📅 Due tomorrow';
+      else hint.textContent='📅 Due in '+diff+' day'+(diff>1?'s':'');
+      hint.style.color='';
+    }
+  }
+}
+
+let _assignSubTasks = [];
+
+function addAssignSubTask(){
+  const inp=document.getElementById('f-subtask-input');
+  if(!inp) return;
+  const title=inp.value.trim();
+  if(!title) return;
+  _assignSubTasks.push(title);
+  inp.value='';
+  renderAssignSubTasks();
+}
+
+function removeAssignSubTask(idx){
+  _assignSubTasks.splice(idx,1);
+  renderAssignSubTasks();
+}
+
+function renderAssignSubTasks(){
+  const list=document.getElementById('f-subtask-list');
+  if(!list) return;
+  list.innerHTML=_assignSubTasks.map((t,i)=>
+    '<div class="subtask-item">'
+    +'<span style="width:14px;height:14px;border-radius:3px;border:1.5px solid var(--bd);display:inline-block;flex-shrink:0;"></span>'
+    +'<span class="subtask-title">'+t+'</span>'
+    +'<button class="subtask-del" onclick="removeAssignSubTask('+i+')">×</button>'
+    +'</div>'
+  ).join('');
+}
+
+async function doAssign(){
+  const officers=getSelectedOfficers();
+  const title=document.getElementById('f-title').value.trim();
+  const dueDate=document.getElementById('f-target-date').value;
+  const urgentVal=document.getElementById('f-urgent').checked?'urgent':null;
+  if(!officers.length){alert('Please select at least one officer.');return;}
+  if(!title){alert('Please enter a task title.');return;}
+  if(!dueDate){alert('Please select a target date.');return;}
+  if(!urgentVal&&dueDate<addDays(0)){alert('Target date must be today or a future date.');return;}
+  const btn=document.getElementById('btn-assign');
+  btn.disabled=true;
+  btn.textContent=officers.length>1?'Assigning to '+officers.length+' officers…':'Assigning…';
+  try{
+    const base={
+      title,description:document.getElementById('f-desc').value.trim()||null,
+      notes:null,category:document.getElementById('f-cat').value,
+      priority:document.getElementById('f-priority').value,
+      due_date:dueDate,urgent_reply:urgentVal,initial_remark:'Task assigned.',
+    };
+    const createdTasks=await Promise.all(officers.map(oid=>
+      apiFetch('/api/tasks/',{method:'POST',body:JSON.stringify({...base,assigned_to:oid})})
+    ));
+    // Add subtasks if any
+    if(_assignSubTasks.length>0){
+      await Promise.all(createdTasks.flatMap(task=>
+        _assignSubTasks.map(title=>
+          apiFetch('/api/tasks/'+task.id+'/subtasks',{method:'POST',body:JSON.stringify({title})}).catch(()=>{})
+        )
+      ));
+    }
+    _assignSubTasks=[];
+    closeModal('modal-assign');
+    if(officers.length>1) showToast('✓ Task assigned to '+officers.length+' officers');
+    await renderPage();
+  }catch(e){alert('Error: '+e.message);}
+  finally{btn.disabled=false;btn.textContent='✦ Assign Task';}
+}
+
+/* ── COMPLIANCE / APPROVE / REOPEN ───────────────────── */
+function openSubmitModal(){document.getElementById('compliance-text').value='';openModal('modal-submit');}
+async function doSubmit(){
+  const remark=document.getElementById('compliance-text').value.trim();
+  if(!remark){alert('Please write a compliance report.');return;}
+  try{
+    await apiFetch('/api/tasks/'+_activeTaskId,{method:'PATCH',body:JSON.stringify({status:'Closure Pending',remark})});
+    closeModal('modal-submit');closeModal('modal-detail');
+    showToast('Compliance submitted.');
+    await renderPage();
+  }catch(e){alert('Error: '+e.message);}
+}
+function doApprove(){
+  openModal('modal-approve');
+}
+async function doApproveConfirmed(){
+  try{
+    await apiFetch('/api/tasks/'+_activeTaskId,{method:'PATCH',body:JSON.stringify({status:'Completed',remark:'Compliance accepted. Task Completed.'})});
+    closeModal('modal-approve');closeModal('modal-detail');
+    showToast('Task approved ✔');await renderPage();
+  }catch(e){alert('Error: '+e.message);}
+}
+function openReopenModal(){document.getElementById('reopen-text').value='';openModal('modal-reopen');}
+async function doReopen(){
+  const remark=document.getElementById('reopen-text').value.trim();
+  if(!remark){alert('Please provide remarks for reopening.');return;}
+  try{
+    await apiFetch('/api/tasks/'+_activeTaskId,{method:'PATCH',body:JSON.stringify({status:'Reopened',remark})});
+    closeModal('modal-reopen');closeModal('modal-detail');showToast('Task reopened.');await renderPage();
+  }catch(e){alert('Error: '+e.message);}
+}
+
+/* ── REASSIGN ─────────────────────────────────────────── */
+async function openReassignModal(){
+  document.getElementById('reassign-reason').value='';
+  const sel=document.getElementById('reassign-to');
+  sel.innerHTML='<option value="">Loading…</option>';
+  openModal('modal-reassign');
+  try{
+    const subs=await apiFetch('/api/officers/subordinates');
+    sel.innerHTML='<option value="">— Select Officer —</option>';
+    subs.forEach(o=>{
+      const op=document.createElement('option');
+      op.value=o.id;op.textContent=o.rank+' '+o.name;
+      sel.appendChild(op);
+    });
+  }catch(e){sel.innerHTML='<option value="">Error loading</option>';}
+}
+async function doReassign(){
+  const to=document.getElementById('reassign-to').value;
+  const reason=document.getElementById('reassign-reason').value.trim();
+  if(!to){alert('Please select an officer.');return;}
+  try{
+    await apiFetch('/api/tasks/'+_activeTaskId+'/reassign',{method:'POST',body:JSON.stringify({new_officer_id:to,reason:reason||null})});
+    closeModal('modal-reassign');closeModal('modal-detail');showToast('Task reassigned ↔');await renderPage();
+  }catch(e){alert('Error: '+e.message);}
+}
+
+/* ── EXTEND DEADLINE ─────────────────────────────────── */
+function openExtendModal(currentDue){
+  document.getElementById('extend-current').textContent=currentDue;
+  document.getElementById('extend-reason').value='';
+  const datePicker=document.getElementById('extend-date');
+  const nextDay=new Date(currentDue);nextDay.setDate(nextDay.getDate()+1);
+  datePicker.min=nextDay.toISOString().split('T')[0];
+  datePicker.value=addDays(7);
+  openModal('modal-extend');
+}
+async function doExtend(){
+  const newDate=document.getElementById('extend-date').value;
+  const reason=document.getElementById('extend-reason').value.trim();
+  if(!newDate){alert('Please select a new due date.');return;}
+  if(!reason){alert('Please provide a reason for the extension.');return;}
+  try{
+    await apiFetch('/api/tasks/'+_activeTaskId+'/extend',{method:'POST',body:JSON.stringify({new_due_date:newDate,reason})});
+    closeModal('modal-extend');closeModal('modal-detail');showToast('Deadline extended 📅');await renderPage();
+  }catch(e){alert('Error: '+e.message);}
+}
+
+/* ── CHANGE PASSWORD ─────────────────────────────────── */
+function openChgPwModal(){
+  ['chpw-cur','chpw-new','chpw-conf'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('chpw-err').style.display='none';
+  openModal('modal-chgpw');
+}
+async function doChangePassword(){
+  const cur=document.getElementById('chpw-cur').value;
+  const nw=document.getElementById('chpw-new').value;
+  const cf=document.getElementById('chpw-conf').value;
+  const err=document.getElementById('chpw-err');
+  if(!cur||!nw||!cf){err.textContent='All fields required.';err.style.display='block';return;}
+  if(nw!==cf){err.textContent='New passwords do not match.';err.style.display='block';return;}
+  if(nw.length<8){err.textContent='Password must be at least 8 characters.';err.style.display='block';return;}
+  try{
+    await apiFetch('/api/auth/change-password',{method:'POST',body:JSON.stringify({current_password:cur,new_password:nw,confirm_password:cf})});
+    closeModal('modal-chgpw');showToast('Password updated 🔑');
+  }catch(e){err.textContent=e.message;err.style.display='block';}
+}
+
+/* ── ADMIN PAGES ──────────────────────────────────────── */
+async function pgAdminDashboard(){
+  const data=await apiFetch('/api/admin/stats');
+  const g=data.global;
+  const overdueOfficers=data.officers.filter(o=>o.overdue>0).sort((a,b)=>b.overdue-a.overdue);
+  const pendingOfficers=data.officers.filter(o=>o.pending>0).sort((a,b)=>b.pending-a.pending);
+  document.getElementById('main-content').innerHTML=
+    '<div class="ph"><div><div class="ph-title">Admin <em>Overview</em></div><div class="ph-sub">System-wide intelligence · All Officers</div></div></div>'
+    +'<div class="stats-row admin-stats">'
+    +'<div class="sc sc-ip" onclick="goto(\'admin_tasks\')" style="cursor:pointer;"><div class="sc-accent"></div><div class="sc-ico">◷</div><div class="sc-lbl">In Progress</div><div class="sc-val">'+g.in_progress+'</div><div class="sc-hint">Tap to view</div></div>'
+    +'<div class="sc sc-cp" onclick="goto(\'admin_tasks\')" style="cursor:pointer;"><div class="sc-accent"></div><div class="sc-ico">✓</div><div class="sc-lbl">Completed</div><div class="sc-val">'+g.completed+'</div><div class="sc-hint">Tap to view</div></div>'
+    +'<div class="sc sc-ov" onclick="goto(\'admin_tasks\')" style="cursor:pointer;"><div class="sc-accent"></div><div class="sc-ico">!</div><div class="sc-lbl">Overdue</div><div class="sc-val">'+g.overdue+'</div><div class="sc-hint">Tap to view</div></div>'
+    +'<div class="sc sc-rp" onclick="goto(\'admin_tasks\')" style="cursor:pointer;"><div class="sc-accent"></div><div class="sc-ico">↺</div><div class="sc-lbl">Reopened</div><div class="sc-val">'+g.reopened+'</div><div class="sc-hint">Tap to view</div></div>'
+    +'</div>'
+    +(g.closure_pending>0?'<div class="notice n-vi"><div class="ni">◎</div><div><strong>'+g.closure_pending+' tasks awaiting approval</strong> across all officers.</div></div>':'')
+    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">'
+    +'<div style="background:var(--surface);border:1.5px solid var(--ov-bd);border-radius:var(--r);padding:14px;">'
+    +'<div style="font-size:11px;font-weight:700;color:var(--ov-tx);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Overdue Officers</div>'
+    +(overdueOfficers.length?overdueOfficers.slice(0,8).map(o=>'<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd);"><div><div style="font-size:13px;font-weight:700;">'+o.name+'</div><div style="font-size:11px;color:var(--t3);">'+o.rank+'</div></div><span class="badge bs-Overdue">'+o.overdue+'</span></div>').join(''):'<div style="color:var(--t4);font-size:13px;padding:6px 0;">All clear!</div>')
+    +'</div>'
+    +'<div style="background:var(--surface);border:1.5px solid var(--ip-bd);border-radius:var(--r);padding:14px;">'
+    +'<div style="font-size:11px;font-weight:700;color:var(--ip-tx);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Pending Officers</div>'
+    +(pendingOfficers.length?pendingOfficers.slice(0,8).map(o=>'<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd);"><div><div style="font-size:13px;font-weight:700;">'+o.name+'</div><div style="font-size:11px;color:var(--t3);">'+o.rank+'</div></div><span class="badge bs-In-Progress">'+o.pending+'</span></div>').join(''):'<div style="color:var(--t4);font-size:13px;padding:6px 0;">No pending tasks!</div>')
+    +'</div>'
+    +'</div>';
+}
+
+/* ── ADMIN ALL TASKS ──────────────────────────────────── */
+let _adminAllTasks=[];
+async function pgAdminTasks(filterStatus){
+  _adminAllTasks=await apiFetch('/api/admin/tasks');
+  document.getElementById('main-content').innerHTML=
+    '<div class="ph">'    +'<div><div class="ph-title">All <em>Tasks</em></div><div class="ph-sub">Complete system view — Admin</div></div>'    +'<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;">'    +'<button class="btn btn-ghost" onclick="exportTasksExcel()" style="font-size:13px;padding:8px 14px;">📥 Export Excel</button>'    +'<button class="btn btn-primary" onclick="openImportModal()" style="font-size:13px;padding:8px 14px;">📤 Import Excel</button>'    +'</div>'    +'</div>'
+    +'<div class="fbar">'
+    +'<input class="fsearch" id="atf-q" placeholder="🔍 Search…" oninput="applyAdminTaskFilter()">'
+    +'<select class="flt" id="atf-s" onchange="applyAdminTaskFilter()"><option value="'+(filterStatus||'')+'">'+( filterStatus||'All Status')+'</option><option value="">All Status</option>'
+    +['In Progress','Completed','Overdue','Reopened','Closure Pending'].map(s=>'<option'+(filterStatus===s?' selected':'')+'>'+s+'</option>').join('')
+    +'</select>'
+    +'<select class="flt" id="atf-c" onchange="applyAdminTaskFilter()"><option value="">All Category</option><option>Crime</option><option>Land Dispute</option><option>Admin</option><option>Meeting</option><option>Other</option></select>'
+    +'<select class="flt" id="atf-p" onchange="applyAdminTaskFilter()"><option value="">All Priority</option><option>High</option><option>Low</option></select>'
+    +'</div>'
+    +'<div id="admin-sel-bar" class="admin-sel-bar" style="display:none;">'
+    +'<span id="admin-sel-text">0 tasks selected</span>'
+    +'<button class="btn btn-danger btn-sm" onclick="adminBulkDelete()">🗑 Delete Selected</button>'
+    +'</div>'
+    +'<div id="admin-task-list">'+buildTable(filterAdminTasks(_adminAllTasks,filterStatus||'','',''),true,true)+'</div>';
+}
+function filterAdminTasks(tasks,s,c,p){
+  const q=(document.getElementById('atf-q')?.value||'').toLowerCase();
+  return tasks.filter(t=>{
+    const ds=displayStatus(t);
+    if(s&&ds!==s) return false;
+    if(c&&t.category!==c) return false;
+    if(p&&t.priority!==p) return false;
+    if(q&&!t.title.toLowerCase().includes(q)&&!t.assigned_to_name.toLowerCase().includes(q)&&!t.assigned_by_name.toLowerCase().includes(q)) return false;
+    return true;
+  });
+}
+function applyAdminTaskFilter(){
+  const s=document.getElementById('atf-s')?.value||'';
+  const c=document.getElementById('atf-c')?.value||'';
+  const p=document.getElementById('atf-p')?.value||'';
+  document.getElementById('admin-task-list').innerHTML=buildTable(filterAdminTasks(_adminAllTasks,s,c,p),true,true);
+  document.getElementById('admin-sel-bar').style.display='none';
+}
+function toggleAllTasks(cb){
+  document.querySelectorAll('.task-chk').forEach(c=>c.checked=cb.checked);
+  updateAdminSelBar();
+}
+function updateAdminSelBar(){
+  const sel=document.querySelectorAll('.task-chk:checked').length;
+  const bar=document.getElementById('admin-sel-bar');
+  const txt=document.getElementById('admin-sel-text');
+  if(sel>0){bar.style.display='flex';txt.textContent=sel+' task'+(sel>1?'s':'')+' selected';}
+  else bar.style.display='none';
+}
+async function adminBulkDelete(){
+  const ids=[...document.querySelectorAll('.task-chk:checked')].map(cb=>parseInt(cb.value));
+  if(!ids.length) return;
+  if(!confirm('Permanently delete '+ids.length+' task'+(ids.length>1?'s':'')+' ? This cannot be undone.')) return;
+  try{
+    const res=await apiFetch('/api/admin/tasks',{method:'DELETE',body:JSON.stringify({task_ids:ids})});
+    showToast('Deleted '+res.deleted_count+' task'+(res.deleted_count>1?'s':''),'#be123c');
+    await pgAdminTasks('');
+  }catch(e){alert('Error: '+e.message);}
+}
+
+/* ── Export / Import Tasks ───────────────────────────── */
+function exportTasksExcel(){
+  const tasks=_adminAllTasks||[];
+  if(!tasks.length){showToast('No tasks to export','#b87316');return;}
+  // Build CSV content
+  const headers=['Task ID','Title','Description','Category','Priority','Status',
+    'Urgent Reply','Due Date','Assigned By ID','Assigned By','Assigned To ID','Assigned To','Created At'];
+  const esc=v=>{
+    const s=String(v||'').replace(/"/g,'""');
+    return (s.includes(',')||s.includes('"')||s.includes('\n'))?'"'+s+'"':s;
+  };
+  const lines=[headers.join(',')];
+  tasks.forEach(t=>{
+    lines.push([
+      t.id, t.title, t.description||'', t.category, t.priority,
+      t.status, t.urgent_reply||'', t.due_date||'',
+      t.assigned_by, t.assigned_by_rank+' '+t.assigned_by_name,
+      t.assigned_to, t.assigned_to_rank+' '+t.assigned_to_name,
+      t.created_at||''
+    ].map(esc).join(','));
+  });
+  const csv=lines.join('\r\n');
+  // UTF-8 BOM so Excel opens correctly
+  const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  const today=new Date().toISOString().slice(0,10);
+  a.href=url; a.download='PTMS_Tasks_'+today+'.csv';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+  showToast('Exported '+tasks.length+' tasks ✓');
+}
+
+function openImportModal(){
+  document.getElementById('import-file').value='';
+  document.getElementById('import-status').style.display='none';
+  document.getElementById('import-btn').disabled=false;
+  document.getElementById('import-btn').textContent='📤 Import Tasks';
+  openModal('modal-import-tasks');
+}
+
+async function doImportTasks(){
+  const fileInput=document.getElementById('import-file');
+  const statusEl=document.getElementById('import-status');
+  const btn=document.getElementById('import-btn');
+  if(!fileInput.files.length){alert('Please select an Excel file.');return;}
+  const file=fileInput.files[0];
+  btn.disabled=true; btn.textContent='Importing…';
+  statusEl.style.display='block';
+  statusEl.textContent='Reading file…';
+
+  try{
+    const text=await file.text();
+    const normalized=text.replace(/\uFEFF/,'').replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+    // Full CSV parser — handles multi-line quoted fields
+    function parseCSV(str){
+      const rows=[]; let row=[]; let cur=''; let inQ=false;
+      for(let i=0;i<str.length;i++){
+        const ch=str[i];
+        if(ch==='"'){
+          if(inQ && str[i+1]==='"'){cur+='"';i++;}  // escaped quote
+          else inQ=!inQ;
+        } else if(ch===',' && !inQ){
+          row.push(cur); cur='';
+        } else if(ch==='\n' && !inQ){
+          row.push(cur); cur='';
+          if(row.some(v=>v.trim())) rows.push(row);
+          row=[];
+        } else {
+          cur+=ch;
+        }
+      }
+      if(cur||row.length){row.push(cur);if(row.some(v=>v.trim()))rows.push(row);}
+      return rows;
+    }
+    const allRows=parseCSV(normalized);
+    if(allRows.length<2){alert('File is empty or has no data rows.');btn.disabled=false;btn.textContent='📤 Import Tasks';return;}
+    const headers=allRows[0].map(h=>h.trim());
+    const rows=allRows.slice(1).map(vals=>{
+      const obj={};
+      headers.forEach((h,i)=>obj[h]=(vals[i]||'').trim());
+      return obj;
+    });
+    if(rows.length>0) console.log('First row sample:', JSON.stringify(rows[0]));
+    statusEl.textContent='Uploading '+rows.length+' tasks…';
+    const res=await apiFetch('/api/admin/import-tasks',{
+      method:'POST',
+      body:JSON.stringify({tasks:rows})
+    });
+    closeModal('modal-import-tasks');
+    let msg='✓ '+res.imported+' imported, '+res.skipped+' skipped';
+    if(res.errors&&res.errors.length){
+      alert('Import errors:\n'+res.errors.slice(0,5).join('\n'));
+    }
+    showToast(msg, res.imported>0?'#166534':'#b87316');
+    await pgAdminTasks('');
+  }catch(e){
+    statusEl.textContent='Error: '+e.message;
+    btn.disabled=false; btn.textContent='📤 Import Tasks';
+  }
+}
+
+async function pgAdminOfficers(){
+  const [data, reqs] = await Promise.all([
+    apiFetch('/api/admin/stats'),
+    apiFetch('/api/admin/password-reset-requests').catch(()=>[])
+  ]);
+  const pendingReqs = reqs.filter(r=>!r.resolved);
+  const reqHtml = pendingReqs.length
+    ? '<div style="background:#fffbeb;border:1.5px solid #fbbf24;border-radius:var(--r);padding:14px;margin-bottom:18px;">'
+      +'<div style="font-size:13px;font-weight:700;color:#92400e;margin-bottom:10px;">🔑 Password Reset Requests ('+pendingReqs.length+')</div>'
+      +pendingReqs.map(r=>'<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-top:1px solid #fde68a;">'
+        +'<div><div style="font-size:13px;font-weight:700;color:var(--t1);">'+r.officer_name+'</div>'
+        +'<div style="font-size:11px;color:var(--t3);">'+r.officer_id+' · Requested '+r.requested_at+'</div></div>'
+        +'<button class="btn btn-primary btn-sm" onclick="openResetPwModal(this.dataset.i,this.dataset.n)" data-i="'+r.officer_id+'" data-n="'+r.officer_name+'" style="font-size:11px;">Reset Password</button>'
+        +'</div>'
+      ).join('')
+      +'</div>'
+    : '';
+  document.getElementById('main-content').innerHTML=
+    '<div class="ph"><div><div class="ph-title">Officer <em>Statistics</em></div><div class="ph-sub">Task load per officer</div></div></div>'
+    +reqHtml
+    +'<div class="table-wrap"><table class="dt"><thead><tr><th>Officer</th><th>Rank</th><th>Total</th><th>Pending</th><th>Overdue</th><th>Completed</th><th>Actions</th></tr></thead>'
+    +'<tbody>'+data.officers.map(o=>'<tr>'
+      +'<td><div class="t-name">'+o.name+'</div><div class="t-desc">'+o.id+'</div></td>'
+      +'<td><span class="badge bc-Admin">'+o.rank+'</span></td>'
+      +'<td style="font-weight:700;color:var(--t1);">'+o.total+'</td>'
+      +'<td>'+(o.pending>0?'<span class="badge bs-In-Progress">'+o.pending+'</span>':'<span style="color:var(--t4);">—</span>')+'</td>'
+      +'<td>'+(o.overdue>0?'<span class="badge bs-Overdue">'+o.overdue+'</span>':'<span style="color:var(--t4);">—</span>')+'</td>'
+      +'<td>'+(o.completed>0?'<span class="badge bs-Completed">'+o.completed+'</span>':'<span style="color:var(--t4);">—</span>')+'</td>'
+      +'<td><button class="btn btn-ghost btn-sm" onclick="openResetPwModal(\''+o.id+'\',\''+o.name+'\')">🔑 Reset PW</button></td>'
+    +'</tr>').join('')+'</tbody></table></div>';
+}
+
+async function pgAdminActivity(){
+  const acts=await apiFetch('/api/admin/activities');
+  const tmap={assigned:{cls:'assigned',icon:'✦',label:'Assigned'},submitted:{cls:'submitted',icon:'⊛',label:'Compliance Submitted'},approved:{cls:'approved',icon:'✓',label:'Approved'},reopened:{cls:'reopened',icon:'↺',label:'Reopened'},reassigned:{cls:'reassigned',icon:'↔',label:'Reassigned'},extended:{cls:'extended',icon:'📅',label:'Extended'},deleted:{cls:'deleted',icon:'✕',label:'Deleted'}};
+  document.getElementById('main-content').innerHTML=
+    '<div class="ph"><div><div class="ph-title">All <em>Activity</em></div><div class="ph-sub">Last 200 system actions</div></div></div>'
+    +'<div style="background:var(--surface);border:1.5px solid var(--bd);border-radius:var(--r);padding:16px 18px;">'
+    +'<div class="timeline">'+acts.map(a=>{
+      const m=tmap[a.action_type]||{cls:'assigned',icon:'·',label:a.action_type};
+      return '<div class="tl-item"><div class="tl-dot '+m.cls+'">'+m.icon+'</div>'
+        +'<div class="tl-body"><div class="tl-actor">'+a.actor_rank+' '+a.actor_name+'</div>'
+        +'<div class="tl-action">'+m.label+' — <strong>#'+String(a.task_id).padStart(4,'0')+' '+a.task_title+'</strong></div>'
+        +'<div class="tl-date">'+fmtDT(a.created_at)+'</div>'
+        +(a.remark?'<div class="tl-rem normal">'+a.remark+'</div>':'')
+        +'</div></div>';
+    }).join('')+'</div></div>';
+}
+
+// pgAdminHierarchy now merged into renderHierarchyTree()
+
+/* ── ADMIN RESET PASSWORD ─────────────────────────────── */
+let _resetPwOfficerId='';
+async function openResetPwModal(id,name){
+  _resetPwOfficerId=id;
+  document.getElementById('resetpw-info').textContent='Resetting password for: '+name+' ('+id+')';
+  ['resetpw-new','resetpw-conf'].forEach(i=>document.getElementById(i).value='');
+  openModal('modal-resetpw');
+}
+async function doResetPassword(){
+  const nw=document.getElementById('resetpw-new').value;
+  const cf=document.getElementById('resetpw-conf').value;
+  if(!nw||nw.length<8){alert('Password must be at least 8 characters.');return;}
+  if(nw!==cf){alert('Passwords do not match.');return;}
+  try{
+    await apiFetch('/api/admin/reset-password',{method:'POST',body:JSON.stringify({officer_id:_resetPwOfficerId,new_password:nw})});
+    closeModal('modal-resetpw');showToast('Password reset ✔');
+  }catch(e){alert('Error: '+e.message);}
+}
+
+/* ── ADMIN ADD OFFICER ────────────────────────────────── */
+async function openAddOfficerModal(){
+  ['ao-id','ao-name','ao-rank'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('ao-level').value='4';
+  const sel=document.getElementById('ao-rto');
+  sel.innerHTML='<option value="">Loading…</option>';
+  openModal('modal-add-officer');
+  try{
+    const officers=await apiFetch('/api/officers/');
+    sel.innerHTML='<option value="">— Select Superior —</option>';
+    officers.filter(o=>o.id!=='ADMIN').forEach(o=>{
+      const op=document.createElement('option');
+      op.value=o.id;op.textContent='[L'+o.level+'] '+o.rank+' '+o.name;
+      sel.appendChild(op);
+    });
+  }catch{}
+}
+async function doAddOfficer(){
+  const id=document.getElementById('ao-id').value.trim().toUpperCase();
+  const name=document.getElementById('ao-name').value.trim();
+  const rank=document.getElementById('ao-rank').value.trim();
+  const level=parseInt(document.getElementById('ao-level').value);
+  const rto=document.getElementById('ao-rto').value;
+  if(!id||!name||!rank||!rto){alert('All fields required.');return;}
+  try{
+    await apiFetch('/api/officers/add',{method:'POST',body:JSON.stringify({id,name,rank,level,report_to:rto})});
+    closeModal('modal-add-officer');showToast('Officer '+name+' added ✓');
+    await pgAdminHierarchy();
+  }catch(e){alert('Error: '+e.message);}
+}
+
+/* ── HIERARCHY EDITOR ─────────────────────────────────── */
+let _hierData=[];
+async function openHierEditor(){
+  openModal('modal-hier-editor');
+  document.getElementById('hier-pending-notice').style.display='none';
+  try{
+    _hierData=await apiFetch('/api/officers/');
+    renderHierTable();
+  }catch(e){alert('Error: '+e.message);}
+}
+function renderHierTable(){
+  const tbody=document.getElementById('hier-tbody');
+  tbody.innerHTML=_hierData.filter(o=>o.id!=='ADMIN').map(o=>{
+    const supOptions=_hierData.filter(s=>s.id!==o.id&&s.id!=='ADMIN')
+      .map(s=>'<option value="'+s.id+'"'+(s.id===o.report_to?' selected':'')+'>'+s.rank+' '+s.name+'</option>').join('');
+    return '<tr data-id="'+o.id+'">'
+      +'<td><input value="'+o.id+'" data-field="id" style="width:90px;" onchange="checkPendingOnEdit(\''+o.id+'\')"></td>'
+      +'<td><input value="'+o.name+'" data-field="name"></td>'
+      +'<td><input value="'+o.rank+'" data-field="rank" style="width:80px;"></td>'
+      +'<td><input value="'+o.level+'" data-field="level" style="width:45px;" type="number" min="0" max="5"></td>'
+      +'<td><select data-field="report_to" onchange="checkPendingOnEdit(\''+o.id+'\')"><option value="">— None —</option>'+supOptions+'</select></td>'
+    +'</tr>';
+  }).join('');
+}
+async function checkPendingOnEdit(officerId){
+  try{
+    const res=await apiFetch('/api/admin/officer-pending/'+officerId);
+    const notice=document.getElementById('hier-pending-notice');
+    const txt=document.getElementById('hier-pending-text');
+    if(res.pending_count>0){
+      txt.innerHTML='<strong>Warning:</strong> '+officerId+' has <strong>'+res.pending_count+' pending task'+(res.pending_count>1?'s':'')+'</strong>. Changing hierarchy may affect task visibility. Pending: '
+        +res.tasks.map(t=>'#'+t.id+' '+t.title).join(', ');
+      notice.style.display='flex';
+    }
+  }catch{}
+}
+async function saveHierarchy(){
+  const rows=document.querySelectorAll('#hier-tbody tr[data-id]');
+  const updated=[];
+  rows.forEach(row=>{
+    const id=row.querySelector('[data-field="id"]').value.trim().toUpperCase();
+    updated.push({
+      original_id:row.dataset.id,
+      id,
+      name:row.querySelector('[data-field="name"]').value.trim(),
+      rank:row.querySelector('[data-field="rank"]').value.trim(),
+      level:parseInt(row.querySelector('[data-field="level"]').value),
+      report_to:row.querySelector('[data-field="report_to"]').value||null,
+    });
+  });
+  try{
+    await apiFetch('/api/officers/bulk-update',{method:'POST',body:JSON.stringify(updated)});
+    closeModal('modal-hier-editor');showToast('Hierarchy saved ✓');await pgAdminHierarchy();
+  }catch(e){alert('Error: '+e.message);}
+}
+
+/* ── MODALS ───────────────────────────────────────────── */
+/* ── Police Stations Admin ──────────────────────────── */
+let _editingStationId = null;
+
+async function pgAdminStations(){
+  const [stations, officers] = await Promise.all([
+    apiFetch('/api/stations/'),
+    apiFetch('/api/officers/')
+  ]);
+  window._stationOfficers = officers.filter(o=>o.id!=='ADMIN'&&['CI','Inspector','SI','RI'].includes(o.rank));
+
+  // Group by division
+  const divs={};
+  stations.forEach(s=>{
+    const d=s.division||'Other';
+    if(!divs[d]) divs[d]=[];
+    divs[d].push(s);
+  });
+
+  const divColors={'Paderu':'#1e3a5f','Chinthapalli':'#274d80','Rampachodavaram':'#1e3a5f','Chinturu':'#274d80','Armed Reserve':'#3b5998','Other':'#6b7280'};
+
+  let html='<div class="ph"><div><div class="ph-title">Police <em>Stations</em></div>'
+    +'<div class="ph-sub">SHO mapping for all police stations in ASR District</div></div>'
+    +'<div class="ph-acts"><button class="btn btn-primary" onclick="openAddStation()">+ Add Station</button></div>'
+    +'</div>';
+
+  if(!stations.length){
+    html+='<div class="empty"><div class="empty-ico">🏛</div><div class="empty-title">No stations added yet</div>'
+      +'<div class="empty-sub">Click "+ Add Station" to begin mapping police stations with SHOs</div></div>';
+  } else {
+    html+='<div style="display:flex;flex-direction:column;gap:20px;">';
+    Object.keys(divs).sort().forEach(div=>{
+      const color=divColors[div]||'#6b7280';
+      html+='<div>'
+        +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">'
+        +'<div style="background:'+color+';color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.5px;">'+div+'</div>'
+        +'<div style="font-size:12px;color:var(--t3);">'+divs[div].length+' station'+(divs[div].length!==1?'s':'')+'</div>'
+        +'</div>'
+        +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;">'
+        +divs[div].map(s=>{
+          const shoHtml=s.sho_id
+            ?'<div style="display:flex;align-items:center;gap:8px;margin-top:8px;padding:8px 10px;background:var(--cp-bg);border:1px solid var(--cp-bd);border-radius:7px;">'
+              +'<div style="width:28px;height:28px;border-radius:50%;background:var(--cp-dot);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;">'+s.sho_name[0]+'</div>'
+              +'<div><div style="font-size:13px;font-weight:700;color:var(--cp-tx);">'+s.sho_name+'</div>'
+              +'<div style="font-size:10px;color:var(--t3);">'+s.sho_rank+' · SHO</div></div>'
+              +'</div>'
+            :'<div style="margin-top:8px;padding:8px 10px;background:var(--ov-bg);border:1px dashed var(--ov-bd);border-radius:7px;font-size:12px;color:var(--ov-tx);font-weight:600;">⚠ No SHO assigned</div>';
+          return '<div style="background:var(--surface);border:1.5px solid var(--bd);border-radius:var(--r);padding:14px;box-shadow:var(--sh-xs);">'
+            +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">'
+            +'<div>'
+            +'<div style="font-size:14px;font-weight:700;color:var(--t1);">'+s.name+'</div>'
+            +'<div style="font-size:10px;color:var(--t4);font-family:JetBrains Mono,monospace;margin-top:2px;">'+s.station_id+'</div>'
+            +'</div>'
+            +'<div style="display:flex;gap:5px;flex-shrink:0;">'
+            +'<button class="ht-edit" onclick="openEditStation('+JSON.stringify(s).replace(/"/g,"&quot;")+')">Edit</button>'
+            +'<button class="ht-del" onclick="deleteStation(this.dataset.id,this.dataset.name)" data-id="'+s.id+'" data-name="'+s.name.replace(/'/g,'&#39;')+'" title="Delete">✕</button>'
+            +'</div>'
+            +'</div>'
+            +shoHtml
+            +'</div>';
+        }).join('')
+        +'</div>'
+        +'</div>';
+    });
+    html+='</div>';
+  }
+
+  document.getElementById('main-content').innerHTML=html;
+}
+
+async function populateStationOfficerDropdown(){
+  const sel=document.getElementById('st-sho');
+  const officers=window._stationOfficers||await apiFetch('/api/officers/').then(all=>all.filter(o=>o.id!=='ADMIN'&&['CI','Inspector','SI','RI'].includes(o.rank)));
+  sel.innerHTML='<option value="">— Not assigned —</option>';
+  const byRank={'Inspector':[],'CI':[],'SI':[],'RI':[]};
+  officers.forEach(o=>{if(byRank[o.rank]) byRank[o.rank].push(o);});
+  ['CI','Inspector','SI','RI'].forEach(rank=>{
+    if(!byRank[rank].length) return;
+    const g=document.createElement('optgroup');
+    g.label=rank;
+    byRank[rank].forEach(o=>{
+      const opt=document.createElement('option');
+      opt.value=o.id; opt.textContent=o.name+' ('+o.id+')';
+      g.appendChild(opt);
+    });
+    sel.appendChild(g);
+  });
+}
+
+async function openAddStation(){
+  _editingStationId=null;
+  document.getElementById('station-modal-title').textContent='Add Police Station';
+  document.getElementById('station-save-btn').textContent='+ Add Station';
+  document.getElementById('st-name').value='';
+  document.getElementById('st-sid').value='';
+  document.getElementById('st-div').value='';
+  await populateStationOfficerDropdown();
+  document.getElementById('st-sho').value='';
+  openModal('modal-station');
+}
+
+async function openEditStation(s){
+  _editingStationId=s.id;
+  document.getElementById('station-modal-title').textContent='Edit Station';
+  document.getElementById('station-save-btn').textContent='💾 Save Changes';
+  document.getElementById('st-name').value=s.name;
+  document.getElementById('st-sid').value=s.station_id;
+  document.getElementById('st-div').value=s.division||'';
+  await populateStationOfficerDropdown();
+  document.getElementById('st-sho').value=s.sho_id||'';
+  openModal('modal-station');
+}
+
+async function saveStation(){
+  const name=document.getElementById('st-name').value.trim();
+  const sid=document.getElementById('st-sid').value.trim().toUpperCase();
+  const div=document.getElementById('st-div').value;
+  const sho=document.getElementById('st-sho').value||null;
+  if(!name||!sid){alert('Station Name and ID are required.');return;}
+  try{
+    if(_editingStationId){
+      await apiFetch('/api/stations/'+_editingStationId,{method:'PATCH',body:JSON.stringify({name,division:div,sho_id:sho})});
+      showToast('Station updated ✓');
+    } else {
+      await apiFetch('/api/stations/',{method:'POST',body:JSON.stringify({name,station_id:sid,division:div,sho_id:sho})});
+      showToast('Station added ✓');
+    }
+    closeModal('modal-station');
+    await pgAdminStations();
+  }catch(e){alert('Error: '+e.message);}
+}
+
+async function deleteStation(id,name){
+  if(!confirm('Remove police station "'+name+'"?')) return;
+  try{
+    await apiFetch('/api/stations/'+id,{method:'DELETE'});
+    showToast(name+' removed','#be123c');
+    await pgAdminStations();
+  }catch(e){alert('Error: '+e.message);}
+}
+
+/* ── SubTask Functions ────────────────────────────────── */
+async function addSubTask(taskId){
+  const inp=document.getElementById('subtask-input-'+taskId);
+  if(!inp) return;
+  const title=inp.value.trim();
+  if(!title) return;
+  try{
+    await apiFetch('/api/tasks/'+taskId+'/subtasks',{method:'POST',body:JSON.stringify({title})});
+    inp.value='';
+    await refreshSubTasks(taskId);
+  }catch(e){alert('Error: '+e.message);}
+}
+
+async function toggleSubTask(taskId,subId){
+  try{
+    await apiFetch('/api/tasks/'+taskId+'/subtasks/'+subId,{method:'PATCH'});
+    await refreshSubTasks(taskId);
+  }catch(e){alert('Error: '+e.message);}
+}
+
+async function deleteSubTask(taskId,subId){
+  try{
+    await apiFetch('/api/tasks/'+taskId+'/subtasks/'+subId,{method:'DELETE'});
+    await refreshSubTasks(taskId);
+  }catch(e){alert('Error: '+e.message);}
+}
+
+async function refreshSubTasks(taskId){
+  const subs=await apiFetch('/api/tasks/'+taskId+'/subtasks').catch(()=>[]);
+  const isAssignedBy=window._taskDetailCache&&window._taskDetailCache.assigned_by===_user.id;
+  const doneCount=subs.filter(s=>s.status==='Done').length;
+  const pct=subs.length?Math.round(doneCount/subs.length*100):0;
+  const list=document.getElementById('subtask-list-'+taskId);
+  if(!list) return;
+  list.innerHTML=subs.length?subs.map(s=>
+    '<div class="subtask-item'+(s.status==='Done'?' done':'')+'" id="sub-'+s.id+'">'
+      +'<input class="subtask-check" type="checkbox"'+(s.status==='Done'?' checked':'')
+        +' onchange="toggleSubTask('+taskId+','+s.id+')">'
+      +'<span class="subtask-title">'+s.title+'</span>'
+      +(s.assignee_name?'<span class="subtask-assignee">'+s.assignee_name+'</span>':'')
+      +(isAssignedBy?'<button class="subtask-del" onclick="deleteSubTask('+taskId+','+s.id+')" title="Remove">×</button>':'')
+    +'</div>'
+  ).join(''):'<div style="font-size:12px;color:var(--t4);padding:4px 0;">No sub-tasks yet.</div>';
+  // Update progress
+  const prog=list.parentElement.querySelector('.subtask-progress-fill');
+  if(prog) prog.style.width=pct+'%';
+  const lbl=list.parentElement.querySelector('.sec-title');
+  if(lbl) lbl.textContent='Sub-Tasks'+(subs.length?' ('+doneCount+'/'+subs.length+')':'');
+}
+
+function openModal(id){document.getElementById(id)?.classList.add('open');}
+function closeModal(id){document.getElementById(id)?.classList.remove('open');}
+document.querySelectorAll('.modal-mask').forEach(m=>
+  m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');})
+);
+
+// Close officer dropdown when clicking outside
+document.addEventListener('click',function(e){
+  const p=document.getElementById('officer-panel');
+  const t=document.getElementById('officer-trigger');
+  if(p&&t&&!p.contains(e.target)&&!t.contains(e.target)){
+    p.classList.remove('open');
+  }
+});
+// Bootstrap
+startApp();
+</script>
+
+<script>
+function controlDeleteButton() {
+    const deleteBtns = document.querySelectorAll('.btn-danger');
+
+    const userText = document.getElementById('oc-name')?.innerText || '';
+
+    const isSP = userText.toUpperCase().includes('SP');
+    const isAdmin = userText.toUpperCase().includes('ADMIN');
+
+    deleteBtns.forEach(btn => {
+        if (btn.innerText.toLowerCase().includes('delete')) {
+            if (!isSP && !isAdmin) {
+                btn.style.display = 'none';
+            } else {
+                btn.style.display = 'inline-flex';
+            }
+        }
+    });
+}
+
+// Run continuously (handles dynamic UI)
+setInterval(controlDeleteButton, 500);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,474 @@
+{
+  "_comment": "Officer hierarchy. Edit here or via SP Hierarchy Editor in app.",
+  "officers": [
+    {
+      "id": "SP",
+      "name": "SP ASR",
+      "rank": "SP",
+      "level": 0,
+      "report_to": null
+    },
+    {
+      "id": "ADDL_SP",
+      "name": "Addl. SP ASR",
+      "rank": "Addl. SP",
+      "level": 1,
+      "report_to": "SP"
+    },
+    {
+      "id": "DSP_CHINT",
+      "name": "DSP Chintapalli",
+      "rank": "DSP",
+      "level": 2,
+      "report_to": "ADDL_SP"
+    },
+    {
+      "id": "DSP_CHINTURU",
+      "name": "DSP Chinturu",
+      "rank": "DSP",
+      "level": 2,
+      "report_to": "ADDL_SP"
+    },
+    {
+      "id": "DSP_RCVM",
+      "name": "DSP rcvm",
+      "rank": "DSP",
+      "level": 2,
+      "report_to": "ADDL_SP"
+    },
+    {
+      "id": "DSP_PDR",
+      "name": "DSP Paderu",
+      "rank": "DSP",
+      "level": 2,
+      "report_to": "ADDL_SP"
+    },
+    {
+      "id": "DCRB_SI",
+      "name": "SI-DCRB",
+      "rank": "SI",
+      "level": 3,
+      "report_to": "CI_DCRB"
+    },
+    {
+      "id": "DCRB_D1",
+      "name": "D-I Seat",
+      "rank": "Seat",
+      "level": 3,
+      "report_to": "CI_DCRB"
+    },
+    {
+      "id": "DCRB_D2",
+      "name": "D-II Seat",
+      "rank": "Seat",
+      "level": 3,
+      "report_to": "CI_DCRB"
+    },
+    {
+      "id": "DCRB_TAP",
+      "name": "Tappal Seat",
+      "rank": "Seat",
+      "level": 3,
+      "report_to": "CI_DCRB"
+    },
+    {
+      "id": "AAO_A1",
+      "name": "A1 Seat",
+      "rank": "Seat",
+      "level": 3,
+      "report_to": "AAO_DPO"
+    },
+    {
+      "id": "AAO_A2",
+      "name": "A2 Seat",
+      "rank": "Seat",
+      "level": 3,
+      "report_to": "AAO_DPO"
+    },
+    {
+      "id": "AAO_G1",
+      "name": "G1 Seat",
+      "rank": "Seat",
+      "level": 3,
+      "report_to": "AAO_DPO"
+    },
+    {
+      "id": "AAO_REC",
+      "name": "Record Room",
+      "rank": "Seat",
+      "level": 3,
+      "report_to": "AAO_DPO"
+    },
+    {
+      "id": "CI_KOYYURU",
+      "name": "CI-Koyyuru Circle",
+      "rank": "CI",
+      "level": 3,
+      "report_to": "DSP_CHINT"
+    },
+    {
+      "id": "CI_CHINT",
+      "name": "CI-Chintapalli Circle",
+      "rank": "CI",
+      "level": 3,
+      "report_to": "DSP_CHINT"
+    },
+    {
+      "id": "CI_GKV",
+      "name": "CI-G.K.Veedhi Circle",
+      "rank": "CI",
+      "level": 3,
+      "report_to": "DSP_CHINT"
+    },
+    {
+      "id": "CI_GMD",
+      "name": "CI-G.Madugula Circle",
+      "rank": "CI",
+      "level": 3,
+      "report_to": "DSP_PDR"
+    },
+    {
+      "id": "CI_ARAKU",
+      "name": "CI-Araku Circle",
+      "rank": "CI",
+      "level": 3,
+      "report_to": "DSP_PDR"
+    },
+    {
+      "id": "CI_PDR",
+      "name": "CI-Paderu Circle",
+      "rank": "CI",
+      "level": 3,
+      "report_to": "DSP_PDR"
+    },
+    {
+      "id": "CI_ADT",
+      "name": "CI-ADT Circle",
+      "rank": "CI",
+      "level": 3,
+      "report_to": "DSP_RCVM"
+    },
+    {
+      "id": "CI_RJVM",
+      "name": "CI-Rajavommangi Circle",
+      "rank": "CI",
+      "level": 3,
+      "report_to": "DSP_RCVM"
+    },
+    {
+      "id": "CI_MML",
+      "name": "CI-Maredumilli Circle",
+      "rank": "CI",
+      "level": 3,
+      "report_to": "DSP_RCVM"
+    },
+    {
+      "id": "CI_RCVM",
+      "name": "CI-Rampachodavaram Circle",
+      "rank": "CI",
+      "level": 3,
+      "report_to": "DSP_RCVM"
+    },
+    {
+      "id": "CI_CTR",
+      "name": "CI-Chinturu Circle",
+      "rank": "CI",
+      "level": 3,
+      "report_to": "DSP_CHINTURU"
+    },
+    {
+      "id": "CI_YTP",
+      "name": "CI-Yetapaka Circle",
+      "rank": "CI",
+      "level": 3,
+      "report_to": "DSP_CHINTURU"
+    },
+    {
+      "id": "SI_DUTCHERTHI",
+      "name": "SI-Dutcherthi",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_ADT"
+    },
+    {
+      "id": "SI_JADDANGI",
+      "name": "SI-Jaddangi",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_RJVM"
+    },
+    {
+      "id": "SI_RJVM",
+      "name": "SI-Rajavommangi",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_RJVM"
+    },
+    {
+      "id": "SI_RCVM",
+      "name": "SI-Rampachodavaram",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_RCVM"
+    },
+    {
+      "id": "SI_DVPM",
+      "name": "SI-Devipatnam",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_RCVM"
+    },
+    {
+      "id": "SI_GANGAVARAM",
+      "name": "SI-Gangavaram",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_ADT"
+    },
+    {
+      "id": "SI_ADT",
+      "name": "SI-Addateegala",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_ADT"
+    },
+    {
+      "id": "SI_MML",
+      "name": "SI-Maredumilli",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_MML"
+    },
+    {
+      "id": "SI_GRTD",
+      "name": "SI-Gurthedu",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_MML"
+    },
+    {
+      "id": "SI_CTR",
+      "name": "SI-Chinturu",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_CTR"
+    },
+    {
+      "id": "SI_MGM",
+      "name": "SI-Moothugudem",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_CTR"
+    },
+    {
+      "id": "SI_DONKARAI",
+      "name": "SI-Donkarai",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_CTR"
+    },
+    {
+      "id": "SI_YTP",
+      "name": "SI-Yetapaka",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_YTP"
+    },
+    {
+      "id": "SI_KNVM",
+      "name": "SI-Kunavaram",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_YTP"
+    },
+    {
+      "id": "SI_VRPM",
+      "name": "SI-VR Puram",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_YTP"
+    },
+    {
+      "id": "SI_YRMVM",
+      "name": "SI-Y Ramavaram",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_ADT"
+    },
+    {
+      "id": "SI_MAMPA",
+      "name": "SI-Mampa",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_KOYYURU"
+    },
+    {
+      "id": "SI_KOYYURU",
+      "name": "SI-Koyyuru",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_KOYYURU"
+    },
+    {
+      "id": "SI_CHINT",
+      "name": "SI-Chintapalli",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_CHINT"
+    },
+    {
+      "id": "SI_ANNAVARAM",
+      "name": "SI-Annavaram",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_CHINT"
+    },
+    {
+      "id": "SI_GKV",
+      "name": "SI-G.K.Veedhi",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_GKV"
+    },
+    {
+      "id": "SI_SILERU",
+      "name": "SI-Sileru",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_GKV"
+    },
+    {
+      "id": "SI_PEDABAYALU",
+      "name": "SI-Pedabayalu",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_GMD"
+    },
+    {
+      "id": "SI_GMD",
+      "name": "SI-G.Madugula",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_GMD"
+    },
+    {
+      "id": "SI_MUNCH",
+      "name": "SI-Munchingiput",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_GMD"
+    },
+    {
+      "id": "SI_ARAKU",
+      "name": "SI-Araku",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_ARAKU"
+    },
+    {
+      "id": "SI_ANANT",
+      "name": "SI-Anantagiri",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_ARAKU"
+    },
+    {
+      "id": "SI_DUMBRI",
+      "name": "SI-Dumbriguda",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_ARAKU"
+    },
+    {
+      "id": "SI_PDR",
+      "name": "SI-Paderu",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_PDR"
+    },
+    {
+      "id": "SI_HKPT",
+      "name": "SI-Hukumpeta",
+      "rank": "SI",
+      "level": 4,
+      "report_to": "CI_PDR"
+    },
+    {
+      "id": "CC_SP",
+      "name": "CC to SP",
+      "rank": "CC",
+      "level": 1,
+      "report_to": "SP"
+    },
+    {
+      "id": "AAO_DPO",
+      "name": "AAO DPO",
+      "rank": "AAO",
+      "level": 2,
+      "report_to": "SP"
+    },
+    {
+      "id": "CI_DCRB",
+      "name": "CI DCRB",
+      "rank": "CI",
+      "level": 2,
+      "report_to": "SP"
+    },
+    {
+      "id": "OW_COMM",
+      "name": "Inspector, Communication",
+      "rank": "Inspector",
+      "level": 2,
+      "report_to": "SP"
+    },
+    {
+      "id": "OW_CYB",
+      "name": "Inspector, Cyber Cell",
+      "rank": "Inspector",
+      "level": 2,
+      "report_to": "SP"
+    },
+    {
+      "id": "OW_IT",
+      "name": "Inspector, IT Core",
+      "rank": "Inspector",
+      "level": 2,
+      "report_to": "SP"
+    },
+    {
+      "id": "OW_NDPS",
+      "name": "Inspector, NDPS Cell",
+      "rank": "Inspector",
+      "level": 2,
+      "report_to": "SP"
+    },
+    {
+      "id": "ADDL_SP DAR",
+      "name": "Addl.SP DAR",
+      "rank": "Addl. SP",
+      "level": 1,
+      "report_to": "SP"
+    },
+    {
+      "id": "DSP_DAR",
+      "name": "DSP DAR",
+      "rank": "DSP",
+      "level": 2,
+      "report_to": "ADDL_SP DAR"
+    },
+    {
+      "id": "RI_DAR",
+      "name": "RI DAR",
+      "rank": "RI",
+      "level": 3,
+      "report_to": "DSP_DAR"
+    },
+    {
+      "id": "RI_OPTR",
+      "name": "RI OPTR",
+      "rank": "RI",
+      "level": 3,
+      "report_to": "DSP_DAR"
+    }
+  ]
+}
